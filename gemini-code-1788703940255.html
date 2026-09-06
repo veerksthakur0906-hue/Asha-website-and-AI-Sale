@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta name="google-site-verification" content="uXGGYhGSxlWbCNAzfm-EgNxjI5ocLeOuEd7pu_9ZGZQ" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI & Web Template Store - Neon Edition</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        body { background-color: #050505; color: #f8fafc; line-height: 1.6; }
+        
+        header { 
+            background: linear-gradient(135deg, #0f0f0f, #1a0800); 
+            padding: 40px 20px; 
+            text-align: center; 
+            border-bottom: 2px solid #ff6600; 
+            box-shadow: 0 0 20px rgba(255, 102, 0, 0.3);
+            position: relative;
+        }
+
+        /* Top-Right Custom Software Button (Neon Orange Theme) */
+        .top-right-btn {
+            position: absolute;
+            top: 20px;
+            right: 25px;
+            background-color: #ff6600;
+            color: #000;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-weight: bold;
+            text-decoration: none;
+            box-shadow: 0 0 15px rgba(255, 102, 0, 0.6);
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+        }
+        .top-right-btn:hover {
+            background-color: #ff8533;
+            box-shadow: 0 0 20px #ff6600;
+            transform: scale(1.05);
+        }
+
+        header h1 { font-size: 2.8rem; color: #ff6600; text-shadow: 0 0 10px rgba(255, 102, 0, 0.6); margin-bottom: 10px; }
+        header p { font-size: 1.1rem; color: #38bdf8; text-shadow: 0 0 8px rgba(56, 189, 248, 0.4); }
+        .badge { background: #ff6600; color: #000; padding: 6px 15px; border-radius: 20px; font-size: 0.95rem; font-weight: bold; display: inline-block; margin-top: 15px; box-shadow: 0 0 10px #ff6600; }
+        
+        .container { max-width: 1200px; margin: 30px auto; padding: 0 20px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
+        
+        .card { 
+            background-color: #0f0f0f; 
+            border: 2px solid #1e293b; 
+            border-radius: 12px; 
+            overflow: hidden; 
+            display: flex; 
+            flex-direction: column; 
+            transition: all 0.3s ease; 
+            box-shadow: 0 4px 15px rgba(0,0,0,0.8);
+        }
+        .card:hover { 
+            transform: translateY(-5px); 
+            border-color: #ff6600; 
+            box-shadow: 0 0 20px rgba(255, 102, 0, 0.4); 
+        }
+        
+        .card-img { height: 150px; background: #121212; display: flex; align-items: center; justify-content: center; font-size: 3.5rem; border-bottom: 1px solid #222; }
+        .card-content { padding: 20px; flex: 1; display: flex; flex-direction: column; justify-content: space-between; }
+        
+        .card-title { font-size: 1.25rem; font-weight: bold; color: #ff6600; margin-bottom: 8px; text-shadow: 0 0 5px rgba(255,102,0,0.3); }
+        .card-desc { font-size: 0.9rem; color: #94a3b8; margin-bottom: 15px; }
+        
+        .price-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; border-top: 1px dashed #222; padding-top: 10px; }
+        .price { font-size: 1.4rem; font-weight: bold; color: #38bdf8; text-shadow: 0 0 8px rgba(56,189,248,0.5); }
+
+        /* Single Buy Button Styling */
+        .btn-buy {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            text-align: center;
+            border-radius: 6px;
+            font-weight: bold;
+            text-decoration: none;
+            font-size: 0.95rem;
+            background-color: #ff6600;
+            color: #000;
+            box-shadow: 0 0 10px rgba(255,102,0,0.4);
+            transition: all 0.2s ease;
+        }
+        .btn-buy:hover {
+            background-color: #ff8533;
+            box-shadow: 0 0 15px #ff6600;
+        }
+
+        /* Modal Overlay Styling */
+        #customModal {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.85);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+        .modal-content {
+            background: #0f0f0f;
+            border: 2px solid #ff6600;
+            padding: 30px;
+            border-radius: 12px;
+            width: 90%;
+            max-width: 500px;
+            box-shadow: 0 0 25px rgba(255,102,0,0.4);
+            position: relative;
+        }
+        .modal-content h2 { color: #ff6600; margin-bottom: 15px; font-size: 1.5rem; }
+        .modal-content label { display: block; color: #ff6600; margin-bottom: 5px; font-size: 0.9rem; }
+        .modal-content input, .modal-content textarea {
+            width: 100%;
+            padding: 10px;
+            background: #1a1a1a;
+            border: 1px solid #333;
+            color: #fff;
+            border-radius: 6px;
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+        }
+        .modal-content textarea { resize: vertical; height: 120px; }
+        .modal-btns { display: flex; justify-content: flex-end; gap: 10px; }
+        .btn-submit { background: #ff6600; color: #000; border: none; padding: 10px 20px; border-radius: 6px; font-weight: bold; cursor: pointer; }
+        .btn-close { background: #333; color: #fff; border: none; padding: 10px 20px; border-radius: 6px; font-weight: bold; cursor: pointer; }
+        .word-counter { font-size: 0.8rem; color: #94a3b8; text-align: right; margin-top: -10px; margin-bottom: 15px; }
+        
+        footer { text-align: center; padding: 30px; background-color: #080808; margin-top: 50px; border-top: 2px solid #ff6600; color: #64748b; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="javascript:void(0);" class="top-right-btn" onclick="openModal()">⚡ Custom Software</a>
+        <h1>⚡ NEON AI & TEMPLATE STORE</h1>
+        <p>Advanced AI Models, Python Bots & Professional Website Templates</p>
+        <div class="badge">🔥 Flat ₹100 & ₹150 Only! | Direct WhatsApp Delivery</div>
+    </header>
+
+    <div class="container">
+        <div class="grid">
+
+            <!-- Product 1: AI Teacher Pro -->
+            <div class="card">
+                <div class="card-img">📚</div>
+                <div class="card-content">
+                    <div>
+                        <div class="card-title">AI Teacher Pro</div>
+                        <div class="card-desc">Interactive AI school teacher with voice support, multi-language study help, and coding assistance.</div>
+                    </div>
+                    <div>
+                        <div class="price-row">
+                            <span class="price">₹100</span>
+                            <span style="font-size: 0.8rem; color: #38bdf8;">Source Code</span>
+                        </div>
+                        <a href="https://wa.me/916268193004?text=I%20want%20to%20buy%20AI%20Teacher%20Pro%20for%20%E2%82%B9100" class="btn-buy" target="_blank">Buy on WhatsApp</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 2: PC Hand Gesture Control -->
+            <div class="card">
+                <div class="card-img">✋</div>
+                <div class="card-content">
+                    <div>
+                        <div class="card-title">PC Hand Gesture Control</div>
+                        <div class="card-desc">Control Windows PC mouse, volume, scrolling, and take screenshots using right hand gestures via webcam.</div>
+                    </div>
+                    <div>
+                        <div class="price-row">
+                            <span class="price">₹100</span>
+                            <span style="font-size: 0.8rem; color: #38bdf8;">Python Script</span>
+                        </div>
+                        <a href="https://wa.me/916268193004?text=I%20want%20to%20buy%20PC%20Hand%20Gesture%20Control%20for%20%E2%82%B9100" class="btn-buy" target="_blank">Buy on WhatsApp</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 3: Friday AI Developer Bot -->
+            <div class="card">
+                <div class="card-img">💻</div>
+                <div class="card-content">
+                    <div>
+                        <div class="card-title">Friday AI Developer Bot</div>
+                        <div class="card-desc">Smart AI coding assistant script built for automating development tasks and quick code generation.</div>
+                    </div>
+                    <div>
+                        <div class="price-row">
+                            <span class="price">₹150</span>
+                            <span style="font-size: 0.8rem; color: #38bdf8;">Advanced Script</span>
+                        </div>
+                        <a href="https://wa.me/916268193004?text=I%20want%20to%20buy%20Friday%20AI%20Developer%20Bot%20for%20%E2%82%B9150" class="btn-buy" target="_blank">Buy on WhatsApp</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 4: Voice Assistant Desktop Bot -->
+            <div class="card">
+                <div class="card-img">🤖</div>
+                <div class="card-content">
+                    <div>
+                        <div class="card-title">Voice Assistant Desktop Bot</div>
+                        <div class="card-desc">Advanced Python voice assistant with speech recognition, Gemini AI integration, and Windows system controls.</div>
+                    </div>
+                    <div>
+                        <div class="price-row">
+                            <span class="price">₹100</span>
+                            <span style="font-size: 0.8rem; color: #38bdf8;">Python Code</span>
+                        </div>
+                        <a href="https://wa.me/916268193004?text=I%20want%20to%20buy%20Voice%20Assistant%20Desktop%20Bot%20for%20%E2%82%B9100" class="btn-buy" target="_blank">Buy on WhatsApp</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 5: Local AI Model Pack (Price: ₹200) -->
+            <div class="card">
+                <div class="card-img">🧠</div>
+                <div class="card-content">
+                    <div>
+                        <div class="card-title">Custom Local AI Model Pack</div>
+                        <div class="card-desc">Standalone local AI setup package configured for fast offline response generation and smart automation.</div>
+                    </div>
+                    <div>
+                        <div class="price-row">
+                            <span class="price">₹200</span>
+                            <span style="font-size: 0.8rem; color: #38bdf8;">Setup Bundle</span>
+                        </div>
+                        <a href="https://wa.me/916268193004?text=I%20want%20to%20buy%20Custom%20Local%20AI%20Model%20Pack%20for%20%E2%82%B9200" class="btn-buy" target="_blank">Buy on WhatsApp</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 6: Jewellery Business Website (Price: ₹250) -->
+            <div class="card">
+                <div class="card-img">💍</div>
+                <div class="card-content">
+                    <div>
+                        <div class="card-title">Luxury Jewellery Web Template</div>
+                        <div class="card-desc">Stunning royal e-commerce & showcase template designed specifically for high-end jewellery stores.</div>
+                    </div>
+                    <div>
+                        <div class="price-row">
+                            <span class="price">₹250</span>
+                            <span style="font-size: 0.8rem; color: #38bdf8;">HTML/CSS Package</span>
+                        </div>
+                        <a href="https://wa.me/916268193004?text=I%20want%20to%20buy%20Luxury%20Jewellery%20Web%20Template%20for%20%E2%82%B9250" class="btn-buy" target="_blank">Buy on WhatsApp</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 7: Dental Clinic Website (Price: ₹250) -->
+            <div class="card">
+                <div class="card-img">🦷</div>
+                <div class="card-content">
+                    <div>
+                        <div class="card-title">Dental Clinic Website Template</div>
+                        <div class="card-desc">Fully responsive professional dental clinic template featuring appointment booking and treatment pages.</div>
+                    </div>
+                    <div>
+                        <div class="price-row">
+                            <span class="price">₹250</span>
+                            <span style="font-size: 0.8rem; color: #38bdf8;">Full Zip Package</span>
+                        </div>
+                        <a href="https://wa.me/916268193004?text=I%20want%20to%20buy%20Dental%20Clinic%20Website%20Template%20for%20%E2%82%B9250" class="btn-buy" target="_blank">Buy on WhatsApp</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 8: Ananta Growth Business Website (Price: ₹500) -->
+            <div class="card">
+                <div class="card-img">📈</div>
+                <div class="card-content">
+                    <div>
+                        <div class="card-title">Ananta Growth Business Template</div>
+                        <div class="card-desc">Professional corporate and business growth template equipped with pricing tables and modern layouts.</div>
+                    </div>
+                    <div>
+                        <div class="price-row">
+                            <span class="price">₹500</span>
+                            <span style="font-size: 0.8rem; color: #38bdf8;">Complete Files</span>
+                        </div>
+                        <a href="https://wa.me/916268193004?text=I%20want%20to%20buy%20Ananta%20Growth%20Business%20Template%20for%20%E2%82%B9500" class="btn-buy" target="_blank">Buy on WhatsApp</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Custom Software Request Modal -->
+    <div id="customModal">
+        <div class="modal-content">
+            <h2>🛠️ Request Custom Software / Website</h2>
+            <form id="customForm" onsubmit="submitCustomOrder(event)">
+                <label for="clientName">Your Name:</label>
+                <input type="text" id="clientName" required placeholder="Enter your full name">
+
+                <label for="clientReq">Website/Software Requirement (Max 20,000 words):</label>
+                <textarea id="clientReq" required placeholder="Describe how you want your website or software built..." oninput="checkWordCount()"></textarea>
+                <div class="word-counter"><span id="wordCount">0</span> / 20,000 words</div>
+
+                <div class="modal-btns">
+                    <button type="button" class="btn-close" onclick="closeModal()">Cancel</button>
+                    <button type="submit" class="btn-submit">Send via WhatsApp</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Neon AI Store. Direct WhatsApp Orders on 6268193004.</p>
+    </footer>
+
+    <script>
+        function openModal() {
+            document.getElementById('customModal').style.display = 'flex';
+        }
+        function closeModal() {
+            document.getElementById('customModal').style.display = 'none';
+        }
+        function checkWordCount() {
+            let text = document.getElementById('clientReq').value.trim();
+            let words = text === "" ? 0 : text.split(/\s+/).length;
+            
+            if (words > 20000) {
+                let trimmedWords = text.split(/\s+/).slice(0, 20000).join(" ");
+                document.getElementById('clientReq').value = trimmedWords;
+                words = 20000;
+                alert("Maximum limit of 20,000 words reached!");
+            }
+            document.getElementById('wordCount').innerText = words;
+        }
+        function submitCustomOrder(event) {
+            event.preventDefault();
+            let name = document.getElementById('clientName').value;
+            let req = document.getElementById('clientReq').value;
+            
+            let whatsappUrl = `https://wa.me/916268193004?text=Name:%20${encodeURIComponent(name)}%0ARequirement:%20${encodeURIComponent(req)}`;
+            window.open(whatsappUrl, '_blank');
+            closeModal();
+        }
+    </script>
+</body>
+</html>

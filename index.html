@@ -158,7 +158,7 @@
 <body>
 
     <header>
-        <a href="javascript:void(0);" class="top-right-btn" onclick="openModal()">⚡ Custom Software</a>
+        <a href="javascript:void(0);" class="top-right-btn custom-software-btn" onclick="openModal()">⚡ Custom Software</a>
         <img src="veer_logo.png" alt="Veer Logo" class="brand-logo">
         <h1>⚡ NEON AI & TEMPLATE STORE</h1>
         <p>Advanced AI Models, Python Bots & Professional Website Templates</p>
@@ -396,6 +396,15 @@
     <script>
         // Custom Modal Scripts
         function openModal() {
+            // Send GA4 Event for Custom Software Click
+            if (typeof gtag === "function") {
+                gtag('event', 'custom_software_click', {
+                    'event_category': 'Engagement',
+                    'event_label': 'Custom Software Button',
+                    'page_location': window.location.href
+                });
+            }
+
             document.getElementById('customModal').style.display = 'flex';
         }
         function closeModal() {

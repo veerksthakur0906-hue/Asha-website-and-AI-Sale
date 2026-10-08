@@ -3,6 +3,11 @@
 <head>
     <meta name="trustpilot-one-time-domain-verification-id" content="0e097a59-9cd0-419f-9301-e48a372f879e"/>
     <link rel="manifest" href="./manifest.json">
+    
+    <!-- TrustBox script -->
+    <script type="text/javascript" src="//widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js" async></script>
+    <!-- End TrustBox script -->
+
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-LGB79B3YSZ"></script>
     <script>
@@ -67,6 +72,12 @@
         header p { font-size: 1.1rem; color: #38bdf8; text-shadow: 0 0 8px rgba(56, 189, 248, 0.4); }
         .badge { background: #ff6600; color: #000; padding: 6px 15px; border-radius: 20px; font-size: 0.95rem; font-weight: bold; display: inline-block; margin-top: 15px; box-shadow: 0 0 10px #ff6600; }
         
+        /* Header TrustBox Styling */
+        .header-trustbox {
+            margin: 15px auto 10px auto;
+            max-width: 300px;
+        }
+
         .container { max-width: 1200px; margin: 30px auto; padding: 0 20px; }
         
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
@@ -163,6 +174,15 @@
         <a href="javascript:void(0);" class="top-right-btn custom-software-btn" onclick="openModal()">⚡ Custom Software</a>
         <img src="veer_logo.png" alt="Veer Logo" class="brand-logo">
         <h1>⚡ NEON AI & TEMPLATE STORE</h1>
+        
+        <!-- TrustBox widget inside Header -->
+        <div class="header-trustbox">
+            <div class="trustpilot-widget" data-locale="en-US" data-template-id="56278e9abfbbba0bdcd568bc" data-businessunit-id="6ac78cf3be67e4fd7bdb04ae" data-style-height="52px" data-style-width="100%" data-token="25f8d1d1-79a2-4eca-915d-d2570a0506dd">
+              <a href="https://www.trustpilot.com/review/neonveer.duckdns.org" target="_blank" rel="noopener">Trustpilot</a>
+            </div>
+        </div>
+        <!-- End TrustBox widget -->
+
         <p>Advanced AI Models, Python Bots & Professional Website Templates</p>
         <div class="badge">🔥 Flat ₹100 & ₹500 Only! | Direct WhatsApp Delivery</div>
     </header>
@@ -206,7 +226,7 @@
                 </div>
             </div>
 
-            <!-- Product 1: Neon Arcade Runner (With Controller Icon) -->
+            <!-- Product 1: Neon Arcade Runner -->
             <div class="card">
                 <div class="card-img">🎮</div>
                 <div class="card-content">
@@ -380,7 +400,6 @@
     <script>
         // Custom Modal Scripts
         function openModal() {
-            // Send GA4 Event for Custom Software Click
             if (typeof gtag === "function") {
                 gtag('event', 'custom_software_click', {
                     'event_category': 'Engagement',
@@ -420,7 +439,6 @@
         document.addEventListener("click", function(event) {
             let target = event.target.closest(".whatsapp-buy-btn");
             if (target) {
-                // Send custom event to Google Analytics
                 if (typeof gtag === "function") {
                     gtag('event', 'whatsapp_purchase_click', {
                         'event_category': 'Engagement',

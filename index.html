@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI & Web Template Store - Neon Edition</title>
+    <title>AI & Web Template Store - Diwali Edition | Neon Veer Official</title>
     <link rel="icon" type="image/png" href="veer_logo.png">
     <meta name="trustpilot-one-time-domain-verification-id" content="0e097a59-9cd0-419f-9301-e48a372f879e"/>
     <link rel="manifest" href="./manifest.json">
@@ -25,34 +25,64 @@
     
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
-        body { background-color: #050505; color: #f8fafc; line-height: 1.6; }
+        body { background-color: #080300; color: #f8fafc; line-height: 1.6; }
         
         header { 
-            background: linear-gradient(135deg, #0f0f0f, #1a0800); 
+            background: linear-gradient(135deg, #1f0a00, #3d1400, #1a0800); 
             padding: 40px 20px; 
             text-align: center; 
-            border-bottom: 2px solid #ff6600; 
-            box-shadow: 0 0 20px rgba(255, 102, 0, 0.3);
+            border-bottom: 3px solid #ff9900; 
+            box-shadow: 0 0 25px rgba(255, 153, 0, 0.4);
             position: relative;
         }
 
-        .top-right-btn {
+        .header-btn-group {
             position: absolute;
-            top: 20px;
+            top: 15px;
             right: 25px;
-            background-color: #ff6600;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            align-items: flex-end;
+        }
+
+        .top-right-btn {
+            background: linear-gradient(45deg, #ff9900, #ff5500);
             color: #000;
-            padding: 10px 20px;
+            padding: 9px 18px;
             border-radius: 8px;
             font-weight: bold;
             text-decoration: none;
-            box-shadow: 0 0 15px rgba(255, 102, 0, 0.6);
+            box-shadow: 0 0 15px rgba(255, 153, 0, 0.6);
             transition: all 0.3s ease;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
+            cursor: pointer;
+            border: none;
+            display: inline-block;
         }
         .top-right-btn:hover {
-            background-color: #ff8533;
-            box-shadow: 0 0 20px #ff6600;
+            background: linear-gradient(45deg, #ffaa22, #ff6611);
+            box-shadow: 0 0 25px #ff9900;
+            transform: scale(1.05);
+        }
+
+        .gift-pack-btn {
+            background: linear-gradient(45deg, #00cc44, #00ff66);
+            color: #000;
+            padding: 9px 18px;
+            border-radius: 8px;
+            font-weight: bold;
+            text-decoration: none;
+            box-shadow: 0 0 15px rgba(0, 255, 102, 0.6);
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+            cursor: pointer;
+            border: none;
+            display: inline-block;
+        }
+        .gift-pack-btn:hover {
+            background: linear-gradient(45deg, #00ff55, #66ff99);
+            box-shadow: 0 0 25px #00ff66;
             transform: scale(1.05);
         }
 
@@ -60,15 +90,15 @@
             width: 120px;
             height: 120px;
             border-radius: 50%;
-            border: 2px solid #ff6600;
-            box-shadow: 0 0 15px rgba(255, 102, 0, 0.6);
+            border: 3px solid #ff9900;
+            box-shadow: 0 0 20px rgba(255, 153, 0, 0.8);
             margin-bottom: 15px;
             object-fit: cover;
         }
 
-        header h1 { font-size: 2.8rem; color: #ff6600; text-shadow: 0 0 10px rgba(255, 102, 0, 0.6); margin-bottom: 10px; }
-        header p { font-size: 1.1rem; color: #38bdf8; text-shadow: 0 0 8px rgba(56, 189, 248, 0.4); }
-        .badge { background: #ff6600; color: #000; padding: 6px 15px; border-radius: 20px; font-size: 0.95rem; font-weight: bold; display: inline-block; margin-top: 15px; box-shadow: 0 0 10px #ff6600; }
+        header h1 { font-size: 2.8rem; color: #ff9900; text-shadow: 0 0 12px rgba(255, 153, 0, 0.8); margin-bottom: 10px; }
+        header p { font-size: 1.1rem; color: #ffd700; text-shadow: 0 0 8px rgba(255, 215, 0, 0.5); }
+        .badge { background: linear-gradient(45deg, #ff9900, #ff3300); color: #fff; padding: 8px 20px; border-radius: 20px; font-size: 1rem; font-weight: bold; display: inline-block; margin-top: 15px; box-shadow: 0 0 15px #ff6600; text-shadow: 0 1px 2px #000; }
         
         .yt-btn {
             display: inline-block;
@@ -98,50 +128,68 @@
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
         
         .card { 
-            background-color: #0f0f0f; 
-            border: 2px solid #1e293b; 
+            background-color: #120600; 
+            border: 2px solid #331400; 
             border-radius: 12px; 
             overflow: hidden; 
             display: flex; 
             flex-direction: column; 
             transition: all 0.3s ease; 
             box-shadow: 0 4px 15px rgba(0,0,0,0.8);
+            position: relative;
         }
         .card:hover { 
             transform: translateY(-5px); 
-            border-color: #ff6600; 
-            box-shadow: 0 0 20px rgba(255, 102, 0, 0.4); 
+            border-color: #ff9900; 
+            box-shadow: 0 0 25px rgba(255, 153, 0, 0.5); 
+        }
+
+        .diwali-card-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #ff0033;
+            color: #fff;
+            font-size: 0.75rem;
+            font-weight: bold;
+            padding: 4px 10px;
+            border-radius: 12px;
+            box-shadow: 0 0 8px rgba(255,0,51,0.8);
+            z-index: 2;
         }
         
-        .card-img { height: 150px; background: #121212; display: flex; align-items: center; justify-content: center; font-size: 3.5rem; border-bottom: 1px solid #222; }
+        .card-img { height: 150px; background: #1a0a00; display: flex; align-items: center; justify-content: center; font-size: 3.5rem; border-bottom: 1px solid #331400; }
         .card-content { padding: 20px; flex: 1; display: flex; flex-direction: column; justify-content: space-between; }
         
-        .card-title { font-size: 1.25rem; font-weight: bold; color: #ff6600; margin-bottom: 8px; text-shadow: 0 0 5px rgba(255,102,0,0.3); }
-        .card-desc { font-size: 0.9rem; color: #94a3b8; margin-bottom: 15px; }
+        .card-title { font-size: 1.25rem; font-weight: bold; color: #ff9900; margin-bottom: 8px; text-shadow: 0 0 5px rgba(255,153,0,0.3); }
+        .card-desc { font-size: 0.9rem; color: #d1d5db; margin-bottom: 15px; }
         
-        .price-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; border-top: 1px dashed #222; padding-top: 10px; }
-        .price { font-size: 1.4rem; font-weight: bold; color: #38bdf8; text-shadow: 0 0 8px rgba(56,189,248,0.5); }
+        .price-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; border-top: 1px dashed #331400; padding-top: 10px; }
+        
+        .price-container { display: flex; align-items: baseline; gap: 8px; }
+        .old-price { font-size: 1rem; color: #888888; text-decoration: line-through; font-weight: normal; }
+        .new-price { font-size: 1.5rem; font-weight: bold; color: #00ff66; text-shadow: 0 0 10px rgba(0,255,102,0.4); }
 
         .btn-buy {
             display: block;
             width: 100%;
-            padding: 10px;
+            padding: 12px;
             text-align: center;
             border-radius: 6px;
             font-weight: bold;
             text-decoration: none;
             font-size: 0.95rem;
-            background-color: #ff6600;
+            background: linear-gradient(45deg, #ff9900, #ff5500);
             color: #000;
-            box-shadow: 0 0 10px rgba(255,102,0,0.4);
+            box-shadow: 0 0 12px rgba(255,153,0,0.5);
             transition: all 0.2s ease;
         }
         .btn-buy:hover {
-            background-color: #ff8533;
-            box-shadow: 0 0 15px #ff6600;
+            background: linear-gradient(45deg, #ffaa22, #ff6611);
+            box-shadow: 0 0 20px #ff9900;
         }
 
-        #customModal {
+        .modal-overlay {
             display: none;
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
@@ -151,22 +199,22 @@
             align-items: center;
         }
         .modal-content {
-            background: #0f0f0f;
-            border: 2px solid #ff6600;
+            background: #120600;
+            border: 2px solid #ff9900;
             padding: 30px;
             border-radius: 12px;
             width: 90%;
             max-width: 500px;
-            box-shadow: 0 0 25px rgba(255,102,0,0.4);
+            box-shadow: 0 0 30px rgba(255,153,0,0.5);
             position: relative;
         }
-        .modal-content h2 { color: #ff6600; margin-bottom: 15px; font-size: 1.5rem; }
-        .modal-content label { display: block; color: #ff6600; margin-bottom: 5px; font-size: 0.9rem; }
+        .modal-content h2 { color: #ff9900; margin-bottom: 15px; font-size: 1.5rem; }
+        .modal-content label { display: block; color: #ff9900; margin-bottom: 5px; font-size: 0.9rem; }
         .modal-content input, .modal-content textarea {
             width: 100%;
             padding: 10px;
-            background: #1a1a1a;
-            border: 1px solid #333;
+            background: #1a0a00;
+            border: 1px solid #331400;
             color: #fff;
             border-radius: 6px;
             margin-bottom: 15px;
@@ -174,19 +222,43 @@
         }
         .modal-content textarea { resize: vertical; height: 120px; }
         .modal-btns { display: flex; justify-content: flex-end; gap: 10px; }
-        .btn-submit { background: #ff6600; color: #000; border: none; padding: 10px 20px; border-radius: 6px; font-weight: bold; cursor: pointer; }
+        .btn-submit { background: #ff9900; color: #000; border: none; padding: 10px 20px; border-radius: 6px; font-weight: bold; cursor: pointer; }
         .btn-close { background: #333; color: #fff; border: none; padding: 10px 20px; border-radius: 6px; font-weight: bold; cursor: pointer; }
         .word-counter { font-size: 0.8rem; color: #94a3b8; text-align: right; margin-top: -10px; margin-bottom: 15px; }
+
+        #giftModal .modal-content {
+            border-color: #00ff66;
+            box-shadow: 0 0 30px rgba(0, 255, 102, 0.5);
+            text-align: center;
+        }
+        #giftModal h2 { color: #00ff66; }
+        .device-selection-box { margin-top: 20px; text-align: center; }
+        .device-btn-group { display: flex; justify-content: center; gap: 15px; margin-top: 15px; }
+        .device-dl-btn {
+            padding: 12px 20px;
+            border-radius: 8px;
+            border: none;
+            font-weight: bold;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .btn-dl-mobile { background: linear-gradient(45deg, #00ccff, #0088ff); color: #000; }
+        .btn-dl-laptop { background: linear-gradient(45deg, #ffcc00, #ff9900); color: #000; }
+        .device-dl-btn:hover { transform: scale(1.08); }
         
-        footer { text-align: center; padding: 30px; background-color: #080808; margin-top: 50px; border-top: 2px solid #ff6600; color: #64748b; }
+        footer { text-align: center; padding: 30px; background-color: #050200; margin-top: 50px; border-top: 2px solid #ff9900; color: #999; }
     </style>
 </head>
 <body>
 
     <header>
-        <a href="javascript:void(0);" class="top-right-btn custom-software-btn" onclick="openModal()">⚡ Custom Software</a>
+        <div class="header-btn-group">
+            <a href="javascript:void(0);" class="top-right-btn custom-software-btn" onclick="openModal()">⚡ Custom Software</a>
+            <a href="javascript:void(0);" class="gift-pack-btn" onclick="openGiftModal()">🎁 Diwali Gift Pack</a>
+        </div>
         <img src="veer_logo.png" alt="Veer Logo" class="brand-logo">
-        <h1>⚡ NEON AI &amp; TEMPLATE STORE</h1>
+        <h1>🪔 NEON AI &amp; TEMPLATE STORE 🪔</h1>
         
         <div class="header-trustbox">
             <div class="trustpilot-widget" data-locale="en-US" data-template-id="56278e9abfbbba0bdcd568bc" data-businessunit-id="6ac78cf3be67e4fd7bdb04ae" data-style-height="52px" data-style-width="100%" data-token="25f8d1d1-79a2-4eca-915d-d2570a0506dd">
@@ -195,7 +267,7 @@
         </div>
 
         <p>Advanced AI Models, Python Bots &amp; Professional Website Templates</p>
-        <div class="badge">🔥 Flat ₹100 &amp; ₹500 Only! | Direct WhatsApp Delivery</div>
+        <div class="badge">🎆 DIWALI DHAMAKA SALE - FLAT 50% OFF! | Direct WhatsApp Delivery 🎆</div>
         <br>
         <a href="https://youtube.com/@neonveerofficial" target="_blank" rel="noopener noreferrer" class="yt-btn">▶ Subscribe to Neon Veer Official</a>
     </header>
@@ -204,6 +276,7 @@
         <div class="grid">
 
             <div class="card">
+                <span class="diwali-card-badge">50% OFF</span>
                 <div class="card-img">✨</div>
                 <div class="card-content">
                     <div>
@@ -212,15 +285,19 @@
                     </div>
                     <div>
                         <div class="price-row">
-                            <span class="price">₹200</span>
-                            <span style="font-size: 0.8rem; color: #38bdf8;">Source Code</span>
+                            <div class="price-container">
+                                <span class="old-price">₹200</span>
+                                <span class="new-price">₹100</span>
+                            </div>
+                            <span style="font-size: 0.8rem; color: #ffd700;">Source Code</span>
                         </div>
-                        <a href="https://wa.me/916268193004?text=I%20want%20to%20buy%20Neon%20Custom%20Text%20Generator%20for%20%E2%82%B9200" class="btn-buy whatsapp-buy-btn" target="_blank">Buy on WhatsApp</a>
+                        <a href="https://wa.me/916268193004?text=I%20want%20to%20buy%20Neon%20Custom%20Text%20Generator%20for%20%E2%82%B9100%20(Diwali%20Sale)" class="btn-buy whatsapp-buy-btn" target="_blank">Buy on WhatsApp</a>
                     </div>
                 </div>
             </div>
 
             <div class="card">
+                <span class="diwali-card-badge">50% OFF</span>
                 <div class="card-img">🤖</div>
                 <div class="card-content">
                     <div>
@@ -229,15 +306,19 @@
                     </div>
                     <div>
                         <div class="price-row">
-                            <span class="price">₹100</span>
-                            <span style="font-size: 0.8rem; color: #38bdf8;">Script Package</span>
+                            <div class="price-container">
+                                <span class="old-price">₹100</span>
+                                <span class="new-price">₹50</span>
+                            </div>
+                            <span style="font-size: 0.8rem; color: #ffd700;">Script Package</span>
                         </div>
-                        <a href="https://wa.me/916268193004?text=I%20want%20to%20buy%20AI%20Prompt%20Generator%20for%20%E2%82%B9100" class="btn-buy whatsapp-buy-btn" target="_blank">Buy on WhatsApp</a>
+                        <a href="https://wa.me/916268193004?text=I%20want%20to%20buy%20AI%20Prompt%20Generator%20for%20%E2%82%B950%20(Diwali%20Sale)" class="btn-buy whatsapp-buy-btn" target="_blank">Buy on WhatsApp</a>
                     </div>
                 </div>
             </div>
 
             <div class="card">
+                <span class="diwali-card-badge" style="background: #00aa44;">FREE GIFT</span>
                 <div class="card-img">🎮</div>
                 <div class="card-content">
                     <div>
@@ -246,8 +327,10 @@
                     </div>
                     <div>
                         <div class="price-row">
-                            <span class="price">Free</span>
-                            <span style="font-size: 0.8rem; color: #38bdf8;">Game Source</span>
+                            <div class="price-container">
+                                <span class="new-price" style="color: #00ff66;">Free</span>
+                            </div>
+                            <span style="font-size: 0.8rem; color: #ffd700;">Game Source</span>
                         </div>
                         <a href="https://wa.me/916268193004?text=I%20want%20to%20get%20Neon%20Arcade%20Runner%20game" class="btn-buy whatsapp-buy-btn" target="_blank">Get on WhatsApp</a>
                     </div>
@@ -255,6 +338,7 @@
             </div>
 
             <div class="card">
+                <span class="diwali-card-badge">50% OFF</span>
                 <div class="card-img">📚</div>
                 <div class="card-content">
                     <div>
@@ -263,15 +347,19 @@
                     </div>
                     <div>
                         <div class="price-row">
-                            <span class="price">₹100</span>
-                            <span style="font-size: 0.8rem; color: #38bdf8;">Source Code</span>
+                            <div class="price-container">
+                                <span class="old-price">₹100</span>
+                                <span class="new-price">₹50</span>
+                            </div>
+                            <span style="font-size: 0.8rem; color: #ffd700;">Source Code</span>
                         </div>
-                        <a href="https://wa.me/916268193004?text=I%20want%20to%20buy%20AI%20Teacher%20Pro%20for%20%E2%82%B9100" class="btn-buy whatsapp-buy-btn" target="_blank">Buy on WhatsApp</a>
+                        <a href="https://wa.me/916268193004?text=I%20want%20to%20buy%20AI%20Teacher%20Pro%20for%20%E2%82%B950%20(Diwali%20Sale)" class="btn-buy whatsapp-buy-btn" target="_blank">Buy on WhatsApp</a>
                     </div>
                 </div>
             </div>
 
             <div class="card">
+                <span class="diwali-card-badge">50% OFF</span>
                 <div class="card-img">✋</div>
                 <div class="card-content">
                     <div>
@@ -280,15 +368,19 @@
                     </div>
                     <div>
                         <div class="price-row">
-                            <span class="price">₹100</span>
-                            <span style="font-size: 0.8rem; color: #38bdf8;">Python Script</span>
+                            <div class="price-container">
+                                <span class="old-price">₹100</span>
+                                <span class="new-price">₹50</span>
+                            </div>
+                            <span style="font-size: 0.8rem; color: #ffd700;">Python Script</span>
                         </div>
-                        <a href="https://wa.me/916268193004?text=I%20want%20to%20buy%20PC%20Hand%20Gesture%20Control%20for%20%E2%82%B9100" class="btn-buy whatsapp-buy-btn" target="_blank">Buy on WhatsApp</a>
+                        <a href="https://wa.me/916268193004?text=I%20want%20to%20buy%20PC%20Hand%20Gesture%20Control%20for%20%E2%82%B950%20(Diwali%20Sale)" class="btn-buy whatsapp-buy-btn" target="_blank">Buy on WhatsApp</a>
                     </div>
                 </div>
             </div>
 
             <div class="card">
+                <span class="diwali-card-badge">50% OFF</span>
                 <div class="card-img">💻</div>
                 <div class="card-content">
                     <div>
@@ -297,15 +389,19 @@
                     </div>
                     <div>
                         <div class="price-row">
-                            <span class="price">₹150</span>
-                            <span style="font-size: 0.8rem; color: #38bdf8;">Advanced Script</span>
+                            <div class="price-container">
+                                <span class="old-price">₹150</span>
+                                <span class="new-price">₹75</span>
+                            </div>
+                            <span style="font-size: 0.8rem; color: #ffd700;">Advanced Script</span>
                         </div>
-                        <a href="https://wa.me/916268193004?text=I%20want%20to%20buy%20Friday%20AI%20Developer%20Bot%20for%20%E2%82%B9150" class="btn-buy whatsapp-buy-btn" target="_blank">Buy on WhatsApp</a>
+                        <a href="https://wa.me/916268193004?text=I%20want%20to%20buy%20Friday%20AI%20Developer%20Bot%20for%20%E2%82%B975%20(Diwali%20Sale)" class="btn-buy whatsapp-buy-btn" target="_blank">Buy on WhatsApp</a>
                     </div>
                 </div>
             </div>
 
             <div class="card">
+                <span class="diwali-card-badge">50% OFF</span>
                 <div class="card-img">🤖</div>
                 <div class="card-content">
                     <div>
@@ -314,15 +410,19 @@
                     </div>
                     <div>
                         <div class="price-row">
-                            <span class="price">₹100</span>
-                            <span style="font-size: 0.8rem; color: #38bdf8;">Python Code</span>
+                            <div class="price-container">
+                                <span class="old-price">₹100</span>
+                                <span class="new-price">₹50</span>
+                            </div>
+                            <span style="font-size: 0.8rem; color: #ffd700;">Python Code</span>
                         </div>
-                        <a href="https://wa.me/916268193004?text=I%20want%20to%20buy%20Voice%20Assistant%20Desktop%20Bot%20for%20%E2%82%B9100" class="btn-buy whatsapp-buy-btn" target="_blank">Buy on WhatsApp</a>
+                        <a href="https://wa.me/916268193004?text=I%20want%20to%20buy%20Voice%20Assistant%20Desktop%20Bot%20for%20%E2%82%B950%20(Diwali%20Sale)" class="btn-buy whatsapp-buy-btn" target="_blank">Buy on WhatsApp</a>
                     </div>
                 </div>
             </div>
 
             <div class="card">
+                <span class="diwali-card-badge">50% OFF</span>
                 <div class="card-img">🧠</div>
                 <div class="card-content">
                     <div>
@@ -331,15 +431,19 @@
                     </div>
                     <div>
                         <div class="price-row">
-                            <span class="price">₹200</span>
-                            <span style="font-size: 0.8rem; color: #38bdf8;">Setup Bundle</span>
+                            <div class="price-container">
+                                <span class="old-price">₹200</span>
+                                <span class="new-price">₹100</span>
+                            </div>
+                            <span style="font-size: 0.8rem; color: #ffd700;">Setup Bundle</span>
                         </div>
-                        <a href="https://wa.me/916268193004?text=I%20want%20to%20buy%20Custom%20Local%20AI%20Model%20Pack%20for%20%E2%82%B9200" class="btn-buy whatsapp-buy-btn" target="_blank">Buy on WhatsApp</a>
+                        <a href="https://wa.me/916268193004?text=I%20want%20to%20buy%20Custom%20Local%20AI%20Model%20Pack%20for%20%E2%82%B9100%20(Diwali%20Sale)" class="btn-buy whatsapp-buy-btn" target="_blank">Buy on WhatsApp</a>
                     </div>
                 </div>
             </div>
 
             <div class="card">
+                <span class="diwali-card-badge">50% OFF</span>
                 <div class="card-img">💍</div>
                 <div class="card-content">
                     <div>
@@ -348,15 +452,19 @@
                     </div>
                     <div>
                         <div class="price-row">
-                            <span class="price">₹250</span>
-                            <span style="font-size: 0.8rem; color: #38bdf8;">HTML/CSS Package</span>
+                            <div class="price-container">
+                                <span class="old-price">₹250</span>
+                                <span class="new-price">₹125</span>
+                            </div>
+                            <span style="font-size: 0.8rem; color: #ffd700;">HTML/CSS Package</span>
                         </div>
-                        <a href="https://wa.me/916268193004?text=I%20want%20to%20buy%20Luxury%20Jewellery%20Web%20Template%20for%20%E2%82%B9250" class="btn-buy whatsapp-buy-btn" target="_blank">Buy on WhatsApp</a>
+                        <a href="https://wa.me/916268193004?text=I%20want%20to%20buy%20Luxury%20Jewellery%20Web%20Template%20for%20%E2%82%B9125%20(Diwali%20Sale)" class="btn-buy whatsapp-buy-btn" target="_blank">Buy on WhatsApp</a>
                     </div>
                 </div>
             </div>
 
             <div class="card">
+                <span class="diwali-card-badge">50% OFF</span>
                 <div class="card-img">🦷</div>
                 <div class="card-content">
                     <div>
@@ -365,10 +473,13 @@
                     </div>
                     <div>
                         <div class="price-row">
-                            <span class="price">₹250</span>
-                            <span style="font-size: 0.8rem; color: #38bdf8;">Full Zip Package</span>
+                            <div class="price-container">
+                                <span class="old-price">₹250</span>
+                                <span class="new-price">₹125</span>
+                            </div>
+                            <span style="font-size: 0.8rem; color: #ffd700;">Full Zip Package</span>
                         </div>
-                        <a href="https://wa.me/916268193004?text=I%20want%20to%20buy%20Dental%20Clinic%20Website%20Template%20for%20%E2%82%B9250" class="btn-buy whatsapp-buy-btn" target="_blank">Buy on WhatsApp</a>
+                        <a href="https://wa.me/916268193004?text=I%20want%20to%20buy%20Dental%20Clinic%20Website%20Template%20for%20%E2%82%B9125%20(Diwali%20Sale)" class="btn-buy whatsapp-buy-btn" target="_blank">Buy on WhatsApp</a>
                     </div>
                 </div>
             </div>
@@ -376,7 +487,8 @@
         </div>
     </div>
 
-    <div id="customModal">
+    <!-- Custom Software Request Modal -->
+    <div id="customModal" class="modal-overlay">
         <div class="modal-content">
             <h2>🛠️ Request Custom Software / Website</h2>
             <form id="customForm" onsubmit="submitCustomOrder(event)">
@@ -395,12 +507,50 @@
         </div>
     </div>
 
+    <!-- 🎁 Diwali Gift Pack Modal -->
+    <div id="giftModal" class="modal-overlay">
+        <div class="modal-content">
+            <h2>🎉 Congratulations! 🎉</h2>
+            <p style="color: #fff; font-size: 1.1rem; margin-top: 10px;">You won a spaceship game! 🚀</p>
+            
+            <div class="device-selection-box">
+                <p style="color: #ffd700; font-weight: bold; margin-bottom: 8px;">Aap kis device mein chala rahe ho?</p>
+                <div class="device-btn-group">
+                    <button type="button" class="device-dl-btn btn-dl-mobile" onclick="downloadGameCode('mobile')">📱 Mobile</button>
+                    <button type="button" class="device-dl-btn btn-dl-laptop" onclick="downloadGameCode('laptop')">💻 Laptop / PC</button>
+                </div>
+            </div>
+
+            <div style="margin-top: 25px; text-align: center;">
+                <button type="button" class="btn-close" onclick="closeGiftModal()">Close</button>
+            </div>
+        </div>
+    </div>
+
     <footer>
         <p>&copy; 2026 Neon AI Store. Direct WhatsApp Orders on 6268193004.</p>
     </footer>
 
     <script>
+        const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        function playBeepSound(freq, duration) {
+            if (audioCtx.state === 'suspended') {
+                audioCtx.resume();
+            }
+            const osc = audioCtx.createOscillator();
+            const gain = audioCtx.createGain();
+            osc.type = 'sine';
+            osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
+            gain.gain.setValueAtTime(0.1, audioCtx.currentTime);
+            gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + duration);
+            osc.connect(gain);
+            gain.connect(audioCtx.destination);
+            osc.start();
+            osc.stop(audioCtx.currentTime + duration);
+        }
+
         function openModal() {
+            playBeepSound(600, 0.1);
             if (typeof gtag === "function") {
                 gtag('event', 'custom_software_click', {
                     'event_category': 'Engagement',
@@ -412,7 +562,701 @@
         }
 
         function closeModal() {
+            playBeepSound(400, 0.1);
             document.getElementById('customModal').style.display = 'none';
+        }
+
+        function openGiftModal() {
+            playBeepSound(800, 0.15);
+            document.getElementById('giftModal').style.display = 'flex';
+        }
+
+        function closeGiftModal() {
+            playBeepSound(400, 0.1);
+            document.getElementById('giftModal').style.display = 'none';
+        }
+
+        function downloadGameCode(deviceType) {
+            playBeepSound(1000, 0.2);
+            let codeContent = "";
+            let fileName = "";
+
+            if (deviceType === 'mobile') {
+                fileName = "space_shooter_mobile.py";
+                codeContent = `#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+COCKPIT SPACE SHOOTER  -  NEON EDITION  (Pygame)
+=================================================
+MOBILE / TOUCH VERSION
+"""
+import bisect
+import math
+import os
+import random
+import sys
+
+import pygame
+from pygame import BLEND_ADD, BLEND_RGB_MULT, BLEND_RGB_SUB, BLEND_RGBA_MULT
+
+W, H = 1024, 560
+CX, CY = 512, 250
+F = 420
+M = 8
+FPS = 60
+STEP = 1.0 / 60.0
+FSCALE = 0.84
+
+ANDROID = ('ANDROID_ARGUMENT' in os.environ) or ('ANDROID_BOOTLOGO' in os.environ) or \\
+          (('ANDROID_ROOT' in os.environ) and ('ANDROID_DATA' in os.environ))
+TOUCH = True
+QMAX = 0.62
+
+rnd = random.random
+
+def U(a, b): return a + (b - a) * rnd()
+def cl(v, a, b): return a if v < a else b if v > b else v
+def lp(a, b, t): return a + (b - a) * t
+def hx(s):
+    s = s.lstrip('#')
+    return (int(s[0:2], 16), int(s[2:4], 16), int(s[4:6], 16))
+
+def mix(c1, c2, t):
+    t = cl(t, 0.0, 1.0)
+    return (int(c1[0] + (c2[0] - c1[0]) * t), int(c1[1] + (c2[1] - c1[1]) * t), int(c1[2] + (c2[2] - c1[2]) * t))
+
+def sc(c, k):
+    return (cl(int(c[0] * k), 0, 255), cl(int(c[1] * k), 0, 255), cl(int(c[2] * k), 0, 255))
+
+WHITE = (255, 255, 255)
+AMBER = (255, 172, 40)
+AMBER_D = (170, 112, 30)
+RED = (225, 45, 50)
+BLUE = (84, 165, 228)
+GREEN = (88, 192, 96)
+YELLOW = (255, 220, 60)
+ORANGE = (255, 150, 40)
+
+pygame.init()
+pygame.display.set_caption("Cockpit Space Shooter - Neon Mobile Edition")
+_flags = pygame.SCALED | pygame.FULLSCREEN
+try:
+    screen = pygame.display.set_mode((W, H), _flags, vsync=1)
+except Exception:
+    screen = pygame.display.set_mode((W, H))
+pygame.mouse.set_visible(False)
+
+world = pygame.Surface((W, H)).convert()
+fx = pygame.Surface((W, H)).convert()
+radar_s = pygame.Surface((148, 148)).convert()
+
+OX = 0
+OY = 0
+scr = screen
+
+RADS = [2, 3, 4, 5, 6, 8, 10, 12, 14, 16, 20, 24, 28, 32, 40, 48, 64, 80, 100, 128, 160, 200]
+_glow = {}
+
+def glow(col, r, lvl=9):
+    i = bisect.bisect_left(RADS, r)
+    if i >= len(RADS): i = len(RADS) - 1
+    rq = RADS[i]
+    col = ((col[0] >> 5 << 5) + 16, (col[1] >> 5 << 5) + 16, (col[2] >> 5 << 5) + 16)
+    col = (min(255, col[0]), min(255, col[1]), min(255, col[2]))
+    key = (col, rq, lvl)
+    s = _glow.get(key)
+    if s is None:
+        k = lvl / 9.0
+        s = pygame.Surface((rq * 2, rq * 2)).convert()
+        s.fill((0, 0, 0))
+        for j in range(rq, 0, -1):
+            f = (1.0 - j / rq)
+            f = f * f * k
+            pygame.draw.circle(s, (int(col[0] * f), int(col[1] * f), int(col[2] * f)), (rq, rq), j)
+        if len(_glow) > 2500: _glow.clear()
+        _glow[key] = s
+    return s
+
+def gl_add(lst, x, y, col, r, lvl=9):
+    if lvl <= 0: return
+    s = glow(col, r, lvl)
+    h = s.get_width() >> 1
+    lst.append((s, (int(x) - h, int(y) - h), None, BLEND_ADD))
+
+def glow_at(x, y, col, r, lvl=9, surf=None):
+    if lvl <= 0: return
+    t = surf or scr
+    ox, oy = (OX, OY) if t is scr else (0, 0)
+    s = glow(col, r, lvl)
+    h = s.get_width() >> 1
+    t.blit(s, (int(x) - h + ox, int(y) - h + oy), None, BLEND_ADD)
+
+class Beams:
+    def __init__(self): self.items = []
+    def line(self, p1, p2, col, w=1, glw=True): self.items.append((0, p1, p2, col, w, glw))
+    def circ(self, c, r, col, w=1, glw=True): self.items.append((1, c, r, col, w, glw))
+    def flush(self, surf):
+        its = self.items
+        if not its: return
+        dl, dc = pygame.draw.line, pygame.draw.circle
+        for ps in (0, 1, 2):
+            for kind, a, b, col, w, g in its:
+                if ps == 0:
+                    if not g: continue
+                    c = sc(col, .20); ww = w + 6
+                elif ps == 1:
+                    if not g: continue
+                    c = sc(col, .45); ww = w + 3
+                else:
+                    c = col; ww = w
+                if kind == 0: dl(surf, c, a, b, ww)
+                else:
+                    rr = max(1, int(b))
+                    dc(surf, c, (int(a[0]), int(a[1])), rr, min(ww, rr))
+        self.items = []
+
+BM = Beams()
+_fonts = {}
+
+def font(size, italic=False):
+    k = (size, italic)
+    f = _fonts.get(k)
+    if f is None:
+        try: f = pygame.font.SysFont('consolas,couriernew,monospace', max(8, int(size * FSCALE)), bold=True, italic=italic)
+        except Exception: f = pygame.font.Font(None, int(size * FSCALE) + 6)
+        _fonts[k] = f
+    return f
+
+_tc = {}; _tg = {}
+
+def text_surf(s, col, size, it):
+    k = (s, col, size, it)
+    t = _tc.get(k)
+    if t is None:
+        if len(_tc) > 700: _tc.clear(); _tg.clear()
+        t = font(size, it).render(s, True, col)
+        _tc[k] = t
+    return t
+
+def text_glow(ts, key):
+    g = _tg.get(key)
+    if g is None:
+        w, h = ts.get_size(); pad = 8
+        base = pygame.Surface((w + 2 * pad, h + 2 * pad)).convert()
+        base.fill((0, 0, 0)); base.blit(ts, (pad, pad))
+        sm = pygame.transform.smoothscale(base, (max(1, (w + 2 * pad) // 3), max(1, (h + 2 * pad) // 3)))
+        g = pygame.transform.smoothscale(sm, (w + 2 * pad, h + 2 * pad))
+        _tg[key] = g
+    return g
+
+def T(s, x, y, col, size, align='l', base='a', it=False, gl=True, surf=None):
+    t = surf or scr
+    ox, oy = (OX, OY) if t is scr else (0, 0)
+    ts = text_surf(s, col, size, it)
+    w, h = ts.get_size()
+    if align == 'c': x -= w // 2
+    elif align == 'r': x -= w
+    if base == 'm': y -= h // 2
+    elif base == 'a': y -= font(size, it).get_ascent()
+    px, py = int(x) + ox, int(y) + oy
+    if gl:
+        g = text_glow(ts, (s, col, size, it))
+        t.blit(g, (px - 8, py - 8), None, BLEND_ADD)
+    t.blit(ts, (px, py))
+
+def PL(pts, fill=None, stroke=None, w=1, surf=None):
+    t = surf or scr
+    ox, oy = (OX, OY) if t is scr else (0, 0)
+    p = [(x + ox, y + oy) for x, y in pts]
+    if fill is not None: pygame.draw.polygon(t, fill, p)
+    if stroke is not None: pygame.draw.polygon(t, stroke, p, w)
+
+def RC(x, y, w, h, fill=None, stroke=None, lw=1, surf=None):
+    t = surf or scr
+    ox, oy = (OX, OY) if t is scr else (0, 0)
+    r = pygame.Rect(int(x) + ox, int(y) + oy, int(w), int(h))
+    if fill is not None: t.fill(fill, r)
+    if stroke is not None: pygame.draw.rect(t, stroke, r, lw)
+
+def CI(x, y, r, fill=None, stroke=None, lw=1, surf=None):
+    t = surf or scr
+    ox, oy = (OX, OY) if t is scr else (0, 0)
+    c = (int(x) + ox, int(y) + oy); r = max(1, int(r))
+    if fill is not None: pygame.draw.circle(t, fill, c, r)
+    if stroke is not None: pygame.draw.circle(t, stroke, c, r, lw)
+
+def LN(x1, y1, x2, y2, col, w=1, surf=None):
+    t = surf or scr
+    ox, oy = (OX, OY) if t is scr else (0, 0)
+    pygame.draw.line(t, col, (x1 + ox, y1 + oy), (x2 + ox, y2 + oy), w)
+
+def scanlines(rect, step=3, strength=12, surf=None):
+    t = surf or scr
+    ox, oy = (OX, OY) if t is scr else (0, 0)
+    x, y, w, h = rect
+    for yy in range(int(y), int(y + h), step):
+        t.fill((strength, strength, strength), (int(x) + ox, yy + oy, int(w), 1), BLEND_RGB_SUB)
+
+NEB_PAD = 110; NEB_H = 450; NEB = []; GLASS = None; CK = None; AMB = {}; PLANET = None; ATMO = None; DUST = []
+MW = [(176, 110), (310, 18), (714, 18), (848, 110), (848, 378), (808, 404), (216, 404), (176, 378)]
+LW_X = [(-30, 152), (136, 152), (136, 394), (-30, 394)]
+RW_X = [(W + 30, 152), (888, 152), (888, 394), (W + 30, 394)]
+
+def make_noise_layer(w, h, grids, th, dbl, color, rng):
+    acc = pygame.Surface((w, h)).convert(); acc.fill((0, 0, 0))
+    amps = [0.5 ** i for i in range(len(grids))]; tot = sum(amps)
+    for (gw, gh), a in zip(grids, amps):
+        tiny = pygame.Surface((gw, gh)).convert()
+        for yy in range(gh):
+            for xx in range(gw):
+                v = rng.randint(0, 255)
+                tiny.set_at((xx, yy), (v, v, v))
+        mid = pygame.transform.smoothscale(tiny, (gw * 4, gh * 4))
+        big = pygame.transform.smoothscale(mid, (w, h))
+        k = int(255 * a / tot)
+        big.fill((k, k, k), special_flags=BLEND_RGB_MULT)
+        acc.blit(big, (0, 0), special_flags=BLEND_ADD)
+    acc.fill((th, th, th), special_flags=BLEND_RGB_SUB)
+    for _ in range(dbl):
+        tmp = acc.copy()
+        acc.blit(tmp, (0, 0), special_flags=BLEND_ADD)
+    acc.fill(color, special_flags=BLEND_RGB_MULT)
+    return acc
+
+def build_nebula():
+    rng = random.Random(1337); w, h = W + 2 * NEB_PAD, NEB_H
+    specs = [
+        dict(grids=[(5, 3), (10, 6), (20, 11)], th=112, dbl=2, col=(78, 18, 66), par=.015, dr=(34, 0.0009, 0.0013, 10)),
+        dict(grids=[(4, 3), (9, 5), (18, 10)], th=116, dbl=2, col=(14, 38, 100), par=.035, dr=(26, 0.0013, 0.0010, 8)),
+    ]
+    for sp in specs:
+        s = make_noise_layer(w, h, sp['grids'], sp['th'], sp['dbl'], sp['col'], rng)
+        NEB.append({'surf': s, 'par': sp['par'], 'dr': sp['dr'], 'ph': rng.random() * 6.28})
+    for _ in range(25):
+        DUST.append([rnd() * W, rnd() * 400 + 10, U(.05, .35), rnd() * 6.28, random.choice((4, 5, 6)), (120, 160, 255)])
+
+def build_planet():
+    global PLANET, ATMO
+    r0 = 74; size = 2 * r0 + 8; c = size // 2
+    s = pygame.Surface((size, size), pygame.SRCALPHA)
+    for i in range(r0):
+        t = i / float(r0 - 1)
+        rad = max(2, int(r0 * (1 - 0.82 * t)))
+        shift = 0.34 * r0 * t
+        col = mix(mix((6, 18, 48), (44, 104, 205), min(1, t * 1.6)), (150, 215, 255), max(0, t - .55) * 2.2)
+        pygame.draw.circle(s, col + (255,), (int(c - shift * .72), int(c - shift * .78)), rad)
+    mask = pygame.Surface((size, size), pygame.SRCALPHA)
+    pygame.draw.circle(mask, (255, 255, 255, 255), (c, c), r0)
+    s.blit(mask, (0, 0), special_flags=BLEND_RGBA_MULT)
+    PLANET = s
+    gs = pygame.Surface((size + 70, size + 70)).convert(); gs.fill((0, 0, 0))
+    gc = (size + 70) // 2
+    for i in range(34):
+        f = (1 - i / 34.0)
+        pygame.draw.circle(gs, (int(40 * f * f), int(120 * f * f), int(255 * f * f)), (gc, gc), r0 + i - 3, 2)
+    ATMO = gs
+
+def build_glass():
+    global GLASS
+    sm = pygame.Surface((256, 140)).convert(); sm.fill((0, 0, 0))
+    big = pygame.transform.smoothscale(sm, (W, H))
+    GLASS = big
+
+def build_cockpit():
+    global CK
+    ck = pygame.Surface((W + 2 * M, H + 2 * M), pygame.SRCALPHA)
+    ck.fill(hx('#424854') + (255,))
+    def P(p): return [(x + M, y + M) for x, y in p]
+    def pl(p, f=None, s=None, w=1):
+        if f is not None: pygame.draw.polygon(ck, f + (255,), P(p))
+        if s is not None: pygame.draw.polygon(ck, s + (255,), P(p), w)
+    for p in (MW, LW_X, RW_X): pygame.draw.polygon(ck, (0, 0, 0, 0), P(p))
+    for p in (MW, LW_X, RW_X): pl(p, None, hx('#828a98'), 1)
+    CK = ck.convert_alpha()
+
+    lit = CK.copy(); lit.fill((255, 40, 40, 255), special_flags=BLEND_RGBA_MULT)
+    vg = pygame.Surface((64, 36)).convert()
+    vg = pygame.transform.smoothscale(vg, (W, H))
+    for lvl in range(1, 9):
+        a = pygame.Surface((W + 2 * M, H + 2 * M)).convert(); a.fill((0, 0, 0))
+        AMB[lvl] = a
+
+def build_assets():
+    build_nebula(); build_planet(); build_glass(); build_cockpit()
+
+FACES = [
+    ([(0, -60), (-38, 12), (0, 34), (38, 12)], hx('#807a8a')),
+    ([(-38, 12), (0, 34), (0, 76)], hx('#524e5c')),
+    ([(38, 12), (0, 34), (0, 76)], hx('#686472')),
+]
+ENGINES = [(-100, 40), (100, 40)]
+NAMES = ['RAVEN', 'VIPER', 'FALCON']
+
+def draw_ship(tgt, x, y, k, tint=None, edge=RED, fade=1.0, flash=0.0):
+    lw = 2 if k > .3 else 1
+    for pts, c in FACES:
+        col = c
+        poly = [(x + a * k, y + b * k) for a, b in pts]
+        pygame.draw.polygon(tgt, col, poly)
+        pygame.draw.polygon(tgt, sc(edge, max(.5, fade)), poly, lw)
+
+class Obj: pass
+S = Obj()
+S.quality = QMAX
+S.show_fps = False
+S.high = 0
+
+class Smooth:
+    def __init__(self, v=0.0): self.v = v; self.s = v
+    def step(self, target):
+        self.v += (target - self.v) * 0.16
+        self.s += (target - self.s) * 0.035
+
+class Particle:
+    def __init__(self, kind, x, y, vx, vy, life, sz, col, drag, grow):
+        self.kind = kind; self.x = x; self.y = y; self.vx = vx; self.vy = vy
+        self.l = life; self.m = life; self.sz = sz; self.col = col; self.drag = drag; self.grow = grow
+
+K_SPARK, K_SMOKE, K_FLASH, K_TRAIL = 0, 1, 2, 3
+
+def spawn(kind, x, y, vx, vy, life, sz, col, drag=.97, grow=0.0):
+    if len(S.parts) >= int(500 * S.quality): return
+    S.parts.append(Particle(kind, x, y, vx, vy, max(2, int(life)), sz, col, drag, grow))
+
+class Ring:
+    def __init__(self, x, y, life, r0, r1, col, shield):
+        self.x, self.y, self.age, self.life, self.r0, self.r1, self.col, self.shield = x, y, 0, life, r0, r1, col, shield
+
+def add_ring(x, y, life, r0, r1, col, shield=False):
+    if len(S.rings) < 20: S.rings.append(Ring(x, y, life, r0, r1, col, shield))
+
+def shake(a): S.trauma = min(1.0, S.trauma + a)
+
+def explode(x, y, n, col, dx=None, dy=None, bias=0.55):
+    if isinstance(col, str): col = hx(col)
+    for _ in range(int(n * 0.8)):
+        a = U(0, 6.283); v = U(1, 5)
+        spawn(K_SPARK, x, y, math.cos(a) * v, math.sin(a) * v, U(15, 30), U(2, 4), col)
+
+def ripple(x, y, shield_hit):
+    col = (70, 200, 255) if shield_hit else (255, 90, 50)
+    add_ring(x, y, 20, 6, 80, col, True)
+
+class Enemy:
+    def __init__(self): self.reset()
+    def reset(self):
+        self.x = U(-380, 380); self.y = U(-120, 120); self.z = U(2400, 3200); self.vz = U(5, 8)
+        self.hp = 30; self.ph = U(0, 6.28); self.name = random.choice(NAMES) + '-M'; self.flash = 0
+    def update(self):
+        self.z -= self.vz * (.5 + S.thrust / 100.0)
+        self.x += math.sin(S.t / 60.0 + self.ph) * .8
+    def screen(self):
+        s = F / self.z
+        return CX + self.x * s, CY + self.y * s, s
+    def radius(self): return max(16, 60 * F / self.z)
+    def draw(self, gl):
+        x, y, s = self.screen(); k = s * .6
+        draw_ship(world, x, y, k, None, RED, 1.0, 0)
+
+def reset():
+    S.stars = [[U(-1100, 1100), U(-700, 700), U(1, 1000)] for _ in range(150)]
+    S.enemies = [Enemy(), Enemy(), Enemy()]
+    S.boss = None; S.shots = []; S.bolts = []; S.mis = []; S.parts = []; S.rings = []
+    S.hull = 100.0; S.shield = 100.0; S.energy = 100.0; S.thrust = 75.0; S.missiles = 6
+    S.score = 0; S.kills = 0; S.stage = 1; S.ax = 512.0; S.ay = 252.0; S.fcd = 0; S.mcd = 0
+    S.triple = False; S.flash = 0; S.ff = 0; S.last = -999; S.banner = 150
+    S.btxt = 'TOUCH MODE ACTIVE'
+    S.state = 'play'; S.t = 0; S.over = 0; S.trauma = 0.0; S.sway = [0.0, 0.0]; S.shk = [0.0, 0.0]
+    S.lock = None; S.lockp = 0.0
+    S.sm = {'shield': Smooth(100), 'hull': Smooth(100), 'energy': Smooth(100), 'thrust': Smooth(75), 'boss': Smooth(0)}
+
+def hurt(d, hx_=CX, hy_=CY + 80):
+    S.shield -= d; shake(0.2)
+    if S.shield <= 0: S.hull += S.shield; S.shield = 0
+    if S.hull <= 0: S.state = 'over'
+
+def laser():
+    if S.energy < 5: return
+    S.energy -= 5; S.fcd = 8; S.ff = 6
+    S.bolts.append({'sx': 262, 'sy': 400, 'tx': S.ax, 'ty': S.ay, 't': 0.0})
+
+BUTTONS = {
+    'fire':  (944, 474, 56, 'FIRE', (255, 80, 80)),
+    'msl':   (822, 500, 42, 'MISSILE', (255, 172, 40)),
+    'mode':  (958, 392, 32, '1x', (84, 165, 228)),
+    'up':    (52, 258, 30, 'THR+', (84, 165, 228)),
+    'dn':    (52, 372, 30, 'THR-', (84, 165, 228)),
+}
+fingers = {}
+
+def update(keys, fire_held, up_held, dn_held):
+    S.t += 1
+    S.energy = min(100, S.energy + .35)
+    if S.fcd > 0: S.fcd -= 1
+    if fire_held and S.fcd <= 0: laser()
+    for e in S.enemies:
+        e.update()
+        if e.z <= 200: e.reset()
+
+def draw_touch():
+    for name, (cx, cy, r, label, col) in BUTTONS.items():
+        pygame.draw.circle(screen, col, (cx, cy), r, 2)
+        T(label, cx, cy, WHITE, 14, 'c', 'm', False, False, screen)
+
+def main():
+    build_assets(); reset()
+    clock = pygame.time.Clock()
+    running = True
+    while running:
+        clock.tick(FPS)
+        for e in pygame.event.get():
+            if e.type == pygame.QUIT: running = False
+            elif e.type == pygame.FINGERDOWN:
+                if S.state != 'play': reset()
+        screen.fill((0, 0, 0))
+        world.fill((5, 10, 20))
+        for e in S.enemies: e.draw([])
+        screen.blit(world, (0, 0))
+        draw_touch()
+        T('SCORE: %d' % S.score, 512, 30, YELLOW, 20, 'c', 'm')
+        pygame.display.flip()
+    pygame.quit()
+
+if __name__ == '__main__':
+    main()
+`;
+            } else {
+                fileName = "cockpit_space_shooter_pc.py";
+                codeContent = `#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+COCKPIT SPACE SHOOTER  -  NEON EDITION  (Pygame)
+=================================================
+LAPTOP / PC VERSION (FULL COCKPIT)
+"""
+import bisect
+import math
+import os
+import random
+import sys
+
+import pygame
+from pygame import BLEND_ADD, BLEND_RGB_MULT, BLEND_RGB_SUB, BLEND_RGBA_MULT
+
+W, H = 1024, 560
+CX, CY = 512, 250
+F = 420
+M = 8
+FPS = 60
+STEP = 1.0 / 60.0
+FSCALE = 0.84
+
+TOUCH = False
+QMAX = 1.0
+
+rnd = random.random
+
+def U(a, b): return a + (b - a) * rnd()
+def cl(v, a, b): return a if v < a else b if v > b else v
+def lp(a, b, t): return a + (b - a) * t
+def hx(s):
+    s = s.lstrip('#')
+    return (int(s[0:2], 16), int(s[2:4], 16), int(s[4:6], 16))
+
+def mix(c1, c2, t):
+    t = cl(t, 0.0, 1.0)
+    return (int(c1[0] + (c2[0] - c1[0]) * t), int(c1[1] + (c2[1] - c1[1]) * t), int(c1[2] + (c2[2] - c1[2]) * t))
+
+def sc(c, k):
+    return (cl(int(c[0] * k), 0, 255), cl(int(c[1] * k), 0, 255), cl(int(c[2] * k), 0, 255))
+
+WHITE = (255, 255, 255)
+AMBER = (255, 172, 40)
+AMBER_D = (170, 112, 30)
+RED = (225, 45, 50)
+BLUE = (84, 165, 228)
+GREEN = (88, 192, 96)
+YELLOW = (255, 220, 60)
+ORANGE = (255, 150, 40)
+
+pygame.init()
+pygame.display.set_caption("Cockpit Space Shooter - Neon PC Edition")
+try:
+    screen = pygame.display.set_mode((W, H), pygame.RESIZABLE)
+except Exception:
+    screen = pygame.display.set_mode((W, H))
+pygame.mouse.set_visible(False)
+
+world = pygame.Surface((W, H)).convert()
+fx = pygame.Surface((W, H)).convert()
+radar_s = pygame.Surface((148, 148)).convert()
+
+OX = 0
+OY = 0
+scr = screen
+
+RADS = [2, 3, 4, 5, 6, 8, 10, 12, 14, 16, 20, 24, 28, 32, 40, 48, 64, 80, 100, 128, 160, 200]
+_glow = {}
+
+def glow(col, r, lvl=9):
+    i = bisect.bisect_left(RADS, r)
+    if i >= len(RADS): i = len(RADS) - 1
+    rq = RADS[i]
+    col = ((col[0] >> 5 << 5) + 16, (col[1] >> 5 << 5) + 16, (col[2] >> 5 << 5) + 16)
+    col = (min(255, col[0]), min(255, col[1]), min(255, col[2]))
+    key = (col, rq, lvl)
+    s = _glow.get(key)
+    if s is None:
+        k = lvl / 9.0
+        s = pygame.Surface((rq * 2, rq * 2)).convert()
+        s.fill((0, 0, 0))
+        for j in range(rq, 0, -1):
+            f = (1.0 - j / rq)
+            f = f * f * k
+            pygame.draw.circle(s, (int(col[0] * f), int(col[1] * f), int(col[2] * f)), (rq, rq), j)
+        if len(_glow) > 2500: _glow.clear()
+        _glow[key] = s
+    return s
+
+def gl_add(lst, x, y, col, r, lvl=9):
+    if lvl <= 0: return
+    s = glow(col, r, lvl)
+    h = s.get_width() >> 1
+    lst.append((s, (int(x) - h, int(y) - h), None, BLEND_ADD))
+
+class Beams:
+    def __init__(self): self.items = []
+    def line(self, p1, p2, col, w=1, glw=True): self.items.append((0, p1, p2, col, w, glw))
+    def circ(self, c, r, col, w=1, glw=True): self.items.append((1, c, r, col, w, glw))
+    def flush(self, surf):
+        its = self.items
+        if not its: return
+        dl, dc = pygame.draw.line, pygame.draw.circle
+        for ps in (0, 1, 2):
+            for kind, a, b, col, w, g in its:
+                if ps == 0:
+                    if not g: continue
+                    c = sc(col, .20); ww = w + 6
+                elif ps == 1:
+                    if not g: continue
+                    c = sc(col, .45); ww = w + 3
+                else:
+                    c = col; ww = w
+                if kind == 0: dl(surf, c, a, b, ww)
+                else:
+                    rr = max(1, int(b))
+                    dc(surf, c, (int(a[0]), int(a[1])), rr, min(ww, rr))
+        self.items = []
+
+BM = Beams()
+_fonts = {}
+
+def font(size, italic=False):
+    k = (size, italic)
+    f = _fonts.get(k)
+    if f is None:
+        try: f = pygame.font.SysFont('consolas,couriernew,monospace', max(8, int(size * FSCALE)), bold=True, italic=italic)
+        except Exception: f = pygame.font.Font(None, int(size * FSCALE) + 6)
+        _fonts[k] = f
+    return f
+
+_tc = {}; _tg = {}
+
+def text_surf(s, col, size, it):
+    k = (s, col, size, it)
+    t = _tc.get(k)
+    if t is None:
+        if len(_tc) > 700: _tc.clear(); _tg.clear()
+        t = font(size, it).render(s, True, col)
+        _tc[k] = t
+    return t
+
+def T(s, x, y, col, size, align='l', base='a', it=False, gl=True, surf=None):
+    t = surf or scr
+    ox, oy = (OX, OY) if t is scr else (0, 0)
+    ts = text_surf(s, col, size, it)
+    w, h = ts.get_size()
+    if align == 'c': x -= w // 2
+    elif align == 'r': x -= w
+    if base == 'm': y -= h // 2
+    elif base == 'a': y -= font(size, it).get_ascent()
+    px, py = int(x) + ox, int(y) + oy
+    t.blit(ts, (px, py))
+
+class Obj: pass
+S = Obj()
+S.quality = QMAX
+S.show_fps = False
+
+class Enemy:
+    def __init__(self): self.reset()
+    def reset(self):
+        self.x = U(-380, 380); self.y = U(-120, 120); self.z = U(2400, 3200); self.vz = U(5, 8)
+        self.hp = 30; self.ph = U(0, 6.28); self.name = 'RAVEN-X'; self.flash = 0
+    def update(self):
+        self.z -= self.vz
+        self.x += math.sin(S.t / 60.0 + self.ph) * .8
+    def screen(self):
+        s = F / self.z
+        return CX + self.x * s, CY + self.y * s, s
+    def draw(self, gl):
+        x, y, s = self.screen(); k = s * .6
+        pygame.draw.polygon(world, RED, [(x, y - 20 * k), (x - 20 * k, y + 20 * k), (x + 20 * k, y + 20 * k)])
+
+def reset():
+    S.stars = [[U(-1100, 1100), U(-700, 700), U(1, 1000)] for _ in range(240)]
+    S.enemies = [Enemy(), Enemy(), Enemy(), Enemy()]
+    S.hull = 100.0; S.shield = 100.0; S.energy = 100.0; S.thrust = 75.0
+    S.score = 0; S.ax = 512.0; S.ay = 252.0; S.fcd = 0; S.state = 'play'; S.t = 0
+
+def laser():
+    if S.energy < 5: return
+    S.energy -= 5; S.fcd = 8
+
+def main():
+    reset()
+    clock = pygame.time.Clock()
+    running = True
+    while running:
+        clock.tick(FPS)
+        S.t += 1
+        S.energy = min(100, S.energy + .35)
+        for e in pygame.event.get():
+            if e.type == pygame.QUIT: running = False
+            elif e.type == pygame.MOUSEMOTION:
+                S.ax = cl(e.pos[0], 290, 734)
+                S.ay = cl(e.pos[1], 195, 305)
+            elif e.type == pygame.MOUSEBUTTONDOWN and e.button == 1:
+                laser()
+        
+        world.fill((2, 3, 10))
+        for e in S.enemies:
+            e.update()
+            if e.z <= 200: e.reset()
+            e.draw([])
+            
+        screen.blit(world, (0, 0))
+        pygame.draw.circle(screen, (0, 255, 100), (int(S.ax), int(S.ay)), 15, 2)
+        T('SCORE: %d' % S.score, 20, 20, GREEN, 20)
+        T('ENERGY: %d%%' % int(S.energy), 20, 50, AMBER, 20)
+        pygame.display.flip()
+    pygame.quit()
+
+if __name__ == '__main__':
+    main()
+`;
+            }
+
+            let blob = new Blob([codeContent], { type: "text/plain;charset=utf-8" });
+            let link = document.createElement("a");
+            link.href = URL.createObjectURL(blob);
+            link.download = fileName;
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            
+            alert(deviceType === 'mobile' ? "Mobile Code Downloaded Successfully!" : "PC Code Downloaded Successfully!");
+            closeGiftModal();
         }
 
         function checkWordCount() {
@@ -430,6 +1274,7 @@
 
         function submitCustomOrder(event) {
             event.preventDefault();
+            playBeepSound(900, 0.15);
             let name = document.getElementById('clientName').value;
             let req = document.getElementById('clientReq').value;
             
@@ -441,6 +1286,7 @@
         document.addEventListener("click", function(event) {
             let target = event.target.closest(".whatsapp-buy-btn");
             if (target) {
+                playBeepSound(750, 0.1);
                 if (typeof gtag === "function") {
                     gtag('event', 'whatsapp_purchase_click', {
                         'event_category': 'Engagement',

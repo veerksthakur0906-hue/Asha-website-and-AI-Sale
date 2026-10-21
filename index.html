@@ -8,6 +8,9 @@
     <meta name="trustpilot-one-time-domain-verification-id" content="0e097a59-9cd0-419f-9301-e48a372f879e"/>
     <link rel="manifest" href="./manifest.json">
     
+    <!-- Google AdSense Script -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8901202554117195" crossorigin="anonymous"></script>
+
     <!-- TrustBox script -->
     <script type="text/javascript" src="https://widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js" async></script>
 
@@ -415,41 +418,4 @@
             document.getElementById('customModal').style.display = 'none';
         }
 
-        function checkWordCount() {
-            let text = document.getElementById('clientReq').value.trim();
-            let words = text === "" ? 0 : text.split(/\s+/).length;
-            
-            if (words > 20000) {
-                let trimmedWords = text.split(/\s+/).slice(0, 20000).join(" ");
-                document.getElementById('clientReq').value = trimmedWords;
-                words = 20000;
-                alert("Maximum limit of 20,000 words reached!");
-            }
-            document.getElementById('wordCount').innerText = words;
-        }
-
-        function submitCustomOrder(event) {
-            event.preventDefault();
-            let name = document.getElementById('clientName').value;
-            let req = document.getElementById('clientReq').value;
-            
-            let whatsappUrl = `https://wa.me/916268193004?text=Name:%20${encodeURIComponent(name)}%0ARequirement:%20${encodeURIComponent(req)}`;
-            window.open(whatsappUrl, '_blank');
-            closeModal();
-        }
-
-        document.addEventListener("click", function(event) {
-            let target = event.target.closest(".whatsapp-buy-btn");
-            if (target) {
-                if (typeof gtag === "function") {
-                    gtag('event', 'whatsapp_purchase_click', {
-                        'event_category': 'Engagement',
-                        'event_label': target.innerText,
-                        'page_location': window.location.href
-                    });
-                }
-            }
-        });
-    </script>
-</body>
-</html>
+                    

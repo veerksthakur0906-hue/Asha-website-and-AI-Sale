@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Neon Lane Dash - 3D Endless Runner</title>
+  <style>
+    :root {
+      color-scheme: dark;
+    }
+    * {
+      box-sizing: border-box;
+    }
+    html, body {
+      margin: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background: radial-gradient(circle at top, #111827, #020617 60%);
+      font-family: "Segoe UI", Arial, sans-serif;
+      color: #e2e8f0;
+    }
+    #hud {
+      position: fixed;
+      top: 14px;
+      left: 14px;
+      z-index: 20;
+      padding: 10px 14px;
+      border-radius: 10px;
+      background: rgba(2, 6, 23, 0.65);
+      border: 1px solid rgba(56, 189, 248, 0.4);
+      box-shadow: 0 0 16px rgba(56, 189, 248, 0.3);
+      font-weight: 700;
+      letter-spacing: 0.03em;
+    }
+    #hint {
+      position: fixed;
+      top: 14px;
+      right: 14px;
+      z-index: 20;
+      padding: 8px 12px;
+      border-radius: 10px;
+      font-size: 0.9rem;
+      background: rgba(15, 23, 42, 0.7);
+      border: 1px solid rgba(148, 163, 184, 0.35);
+    }
+    #gameOver {
+      position: fixed;
+      inset: 0;
+      z-index: 30;
+      display: none;
+      place-items: center;
+      background: rgba(2, 6, 23, 0.82);
+      backdrop-filter: blur(3px);
+    }
+    #panel {
+      width: min(92vw, 380px);
+      padding: 24px;
+      border-radius: 16px;
+      text-align: center;
+      background: linear-gradient(145deg, rgba(15, 23, 42, 0.95), rgba(2, 6, 23, 0.95));
+      border: 1px solid rgba(56, 189, 248, 0.45);
+      box-shadow: 0 0 30px rgba(56, 189, 248, 0.3);
+    }
+    #panel h1 {
+      margin: 0 0 8px;
+      color: #f8fafc;
+      font-size: 1.7rem;
+    }
+    #panel p {
+      margin: 0 0 18px;
+      color: #94a3b8;
+    }
+    #restartBtn {
+      border: none;
+      border-radius: 999px;
+      padding: 11px 20px;
+      font-weight: 700;
+      cursor: pointer;
+      color: #082f49;
+      background: linear-gradient(90deg, #22d3ee, #38bdf8);
+      box-shadow: 0 0 18px rgba(56, 189, 248, 0.65);
+    }
+    canvas {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <div id="hud">Score: <span id="score">0</span></div>
+  <div id="hint">← / → or swipe to switch lanes</div>
+
+  <div id="gameOver">
+    <div id="panel">
+      <h1>Game Over</h1>
+      <p>Your score: <span id="finalScore">0</span></p>
+      <button id="restartBtn" type="button">Restart</button>
+    </div>
+  </div>
+
+  <script type="module">
+    import * as THREE from "https://unpkg.com/three@0.166.1/build/three.module.js";
+
+    const renderer = new THREE.WebGLRenderer({ antialias: true });
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.shadowMap.enabled = true;
+    renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+    document.body.appendChild(renderer.domElement);
+
+    const scene = new THREE.Scene();
+    scene.fog = new THREE.Fog(0x020617, 20, 120);
+
+    const camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 250);
+    camera.position.set(0, 8, 14);
+    camera.lookAt(0, 2.2, -25);
+
+    const ambientLight = new THREE.AmbientLight(0x93c5fd, 0.45);
+    scene.add(ambientLight);
+
+    const hemiLight = new THREE.HemisphereLight(0x22d3ee, 0x020617, 0.55);
+    scene.add(hemiLight);
+
+    const dirLight = new THREE.DirectionalLight(0xffffff, 0.9);
+    dirLight.position.set(8, 18, 8);
+    dirLight.castShadow = true;
+    dirLight.shadow.mapSize.set(1024, 1024);
+    scene.add(dirLight);
+
+    const laneX = [-4, 0, 4];
+    let laneIndex = 1;
+    let isGameOver = false;
+    let score = 0;
+    let speed = 22;
+    let spawnTimer = 0.6;
+
+    const scoreEl = document.getElementById("score");
+    const finalScoreEl = document.getElementById("finalScore");
+    const gameOverEl = document.getElementById("gameOver");
+    const restartBtn = document.getElementById("restartBtn");
+
+    const pathMaterial = new THREE.MeshStandardMaterial({
+      color: 0x0b1021,
+      roughness: 0.85,
+      metalness: 0.1
+    });
+    const laneGlowMaterial = new THREE.MeshBasicMaterial({
+      color: 0x38bdf8,
+      transparent: true,
+      opacity: 0.35
+    });
+
+    const road = new THREE.Group();
+    const tiles = [];
+    const tileLength = 18;
+    const tileCount = 14;
+    const roadWidth = 12;
+
+    for (let i = 0; i < tileCount; i++) {
+      const tile = new THREE.Mesh(new THREE.PlaneGeometry(roadWidth, tileLength), pathMaterial);
+      tile.rotation.x = -Math.PI / 2;
+      tile.receiveShadow = true;
+      tile.position.z = -i * tileLength;
+      road.add(tile);
+      tiles.push(tile);
+
+      const leftGlow = new THREE.Mesh(new THREE.BoxGeometry(0.08, 0.02, tileLength), laneGlowMaterial);
+      leftGlow.position.set(-roadWidth / 2 + 0.35, 0.03, tile.position.z);
+      road.add(leftGlow);
+
+      const rightGlow = leftGlow.clone();
+      rightGlow.position.x = roadWidth / 2 - 0.35;
+      road.add(rightGlow);
+    }
+    scene.add(road);
+
+    const starFieldGeometry = new THREE.BufferGeometry();
+    const starCount = 260;
+    const starPositions = new Float32Array(starCount * 3);
+    for (let i = 0; i < starCount; i++) {
+      const i3 = i * 3;
+      starPositions[i3] = (Math.random() - 0.5) * 120;
+      starPositions[i3 + 1] = 6 + Math.random() * 26;
+      starPositions[i3 + 2] = -Math.random() * 180;
+    }
+    starFieldGeometry.setAttribute("position", new THREE.BufferAttribute(starPositions, 3));
+    const stars = new THREE.Points(starFieldGeometry, new THREE.PointsMaterial({
+      color: 0x7dd3fc,
+      size: 0.13,
+      transparent: true,
+      opacity: 0.8
+    }));
+    scene.add(stars);
+
+    const player = new THREE.Group();
+    const body = new THREE.Mesh(
+      new THREE.BoxGeometry(1.3, 1.5, 1.2),
+      new THREE.MeshStandardMaterial({ color: 0xf97316, emissive: 0x5c2b0c, roughness: 0.35, metalness: 0.45 })
+    );
+    body.position.y = 1.5;
+    body.castShadow = true;
+    player.add(body);
+
+    const head = new THREE.Mesh(
+      new THREE.SphereGeometry(0.45, 18, 18),
+      new THREE.MeshStandardMaterial({ color: 0xfef3c7, roughness: 0.3, metalness: 0.05 })
+    );
+    head.position.set(0, 2.45, 0.08);
+    head.castShadow = true;
+    player.add(head);
+
+    const aura = new THREE.PointLight(0x38bdf8, 2.2, 9);
+    aura.position.set(0, 2, 1.5);
+    player.add(aura);
+    player.position.set(0, 0, 4);
+    scene.add(player);
+
+    const obstacles = [];
+    const coins = [];
+    const bursts = [];
+
+    const obstacleGeo = new THREE.BoxGeometry(2, 2.4, 2);
+    const obstacleMat = new THREE.MeshStandardMaterial({
+      color: 0x7f1d1d,
+      emissive: 0x2c0b0b,
+      roughness: 0.38,
+      metalness: 0.2
+    });
+
+    function createCoin() {
+      const coinGroup = new THREE.Group();
+      const coinMesh = new THREE.Mesh(
+        new THREE.TorusGeometry(0.6, 0.22, 14, 30),
+        new THREE.MeshStandardMaterial({
+          color: 0xfacc15,
+          emissive: 0xffe066,
+          emissiveIntensity: 1.25,
+          roughness: 0.2,
+          metalness: 0.7
+        })
+      );
+      coinMesh.rotation.x = Math.PI / 2;
+      const glow = new THREE.PointLight(0xfacc15, 1.1, 5.2);
+      glow.position.set(0, 0.5, 0);
+      coinGroup.add(coinMesh, glow);
+      coinGroup.userData.mesh = coinMesh;
+      return coinGroup;
+    }
+
+    function spawnSet() {
+      const zPos = -80 - Math.random() * 45;
+      const obstacleLane = Math.floor(Math.random() * laneX.length);
+
+      if (Math.random() < 0.78) {
+        const obstacle = new THREE.Mesh(obstacleGeo, obstacleMat.clone());
+        obstacle.position.set(laneX[obstacleLane], 1.2, zPos);
+        obstacle.castShadow = true;
+        obstacle.receiveShadow = true;
+        scene.add(obstacle);
+        obstacles.push(obstacle);
+      }
+
+      const coinLane = Math.floor(Math.random() * laneX.length);
+      if (Math.random() < 0.88 && coinLane !== obstacleLane) {
+        const coin = createCoin();
+        coin.position.set(laneX[coinLane], 1.7, zPos - 8 - Math.random() * 14);
+        scene.add(coin);
+        coins.push(coin);
+      }
+    }
+
+    function spawnBurst(x, y, z, color = 0xfacc15) {
+      for (let i = 0; i < 12; i++) {
+        const particle = new THREE.Mesh(
+          new THREE.SphereGeometry(0.09, 6, 6),
+          new THREE.MeshBasicMaterial({ color })
+        );
+        particle.position.set(x, y, z);
+        scene.add(particle);
+        bursts.push({
+          mesh: particle,
+          velocity: new THREE.Vector3(
+            (Math.random() - 0.5) * 7.5,
+            Math.random() * 4.5 + 1.5,
+            (Math.random() - 0.5) * 7.5
+          ),
+          life: 0.7 + Math.random() * 0.35
+        });
+      }
+    }
+
+    function gameOver() {
+      isGameOver = true;
+      finalScoreEl.textContent = scoreEl.textContent;
+      gameOverEl.style.display = "grid";
+      spawnBurst(player.position.x, 1.5, player.position.z, 0xfb7185);
+    }
+
+    function resetGame() {
+      for (const item of obstacles) scene.remove(item);
+      for (const coin of coins) scene.remove(coin);
+      for (const burst of bursts) scene.remove(burst.mesh);
+      obstacles.length = 0;
+      coins.length = 0;
+      bursts.length = 0;
+
+      laneIndex = 1;
+      player.position.x = 0;
+      score = 0;
+      distanceScore = 0;
+      speed = 22;
+      spawnTimer = 0.65;
+      isGameOver = false;
+      scoreEl.textContent = "0";
+      gameOverEl.style.display = "none";
+    }
+
+    function updateRoad(delta) {
+      for (const tile of tiles) {
+        tile.position.z += speed * delta;
+        if (tile.position.z > tileLength) {
+          tile.position.z -= tileLength * tileCount;
+        }
+      }
+    }
+
+    function updateStars(delta) {
+      const pos = starFieldGeometry.attributes.position.array;
+      for (let i = 0; i < starCount; i++) {
+        const i3 = i * 3;
+        pos[i3 + 2] += speed * delta * 0.85;
+        if (pos[i3 + 2] > 10) {
+          pos[i3 + 2] = -180;
+          pos[i3] = (Math.random() - 0.5) * 120;
+          pos[i3 + 1] = 6 + Math.random() * 26;
+        }
+      }
+      starFieldGeometry.attributes.position.needsUpdate = true;
+    }
+
+    function updateObjects(delta) {
+      spawnTimer -= delta;
+      if (spawnTimer <= 0 && !isGameOver) {
+        spawnSet();
+        spawnTimer = 0.34 + Math.random() * 0.62;
+      }
+
+      for (let i = obstacles.length - 1; i >= 0; i--) {
+        const obstacle = obstacles[i];
+        obstacle.position.z += speed * delta;
+        obstacle.rotation.y += delta * 0.75;
+
+        const hitX = Math.abs(obstacle.position.x - player.position.x) < 1.25;
+        const hitZ = Math.abs(obstacle.position.z - player.position.z) < 1.35;
+        if (!isGameOver && hitX && hitZ) {
+          gameOver();
+        }
+
+        if (obstacle.position.z > 18) {
+          scene.remove(obstacle);
+          obstacles.splice(i, 1);
+        }
+      }
+
+      for (let i = coins.length - 1; i >= 0; i--) {
+        const coin = coins[i];
+        coin.position.z += speed * delta;
+        coin.rotation.y += delta * 2.5;
+        coin.userData.mesh.rotation.z += delta * 6;
+
+        const hitX = Math.abs(coin.position.x - player.position.x) < 1.1;
+        const hitZ = Math.abs(coin.position.z - player.position.z) < 1.2;
+        if (!isGameOver && hitX && hitZ) {
+          score += 10;
+          scoreEl.textContent = String(score);
+          spawnBurst(coin.position.x, coin.position.y, coin.position.z);
+          scene.remove(coin);
+          coins.splice(i, 1);
+          continue;
+        }
+
+        if (coin.position.z > 18) {
+          scene.remove(coin);
+          coins.splice(i, 1);
+        }
+      }
+    }
+
+    function updateBursts(delta) {
+      for (let i = bursts.length - 1; i >= 0; i--) {
+        const burst = bursts[i];
+        burst.life -= delta;
+        burst.velocity.y -= 11 * delta;
+        burst.mesh.position.addScaledVector(burst.velocity, delta);
+        burst.mesh.scale.setScalar(Math.max(0.01, burst.life));
+        burst.mesh.material.opacity = Math.max(0, burst.life);
+        burst.mesh.material.transparent = true;
+        if (burst.life <= 0) {
+          scene.remove(burst.mesh);
+          bursts.splice(i, 1);
+        }
+      }
+    }
+
+    function setLane(nextLane) {
+      laneIndex = THREE.MathUtils.clamp(nextLane, 0, laneX.length - 1);
+    }
+
+    function onResize() {
+      camera.aspect = window.innerWidth / window.innerHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(window.innerWidth, window.innerHeight);
+    }
+    window.addEventListener("resize", onResize);
+
+    window.addEventListener("keydown", (event) => {
+      if (event.key === "ArrowLeft") setLane(laneIndex - 1);
+      if (event.key === "ArrowRight") setLane(laneIndex + 1);
+    });
+
+    let touchStartX = 0;
+    renderer.domElement.addEventListener("touchstart", (event) => {
+      touchStartX = event.changedTouches[0].clientX;
+    }, { passive: true });
+    renderer.domElement.addEventListener("touchend", (event) => {
+      const dx = event.changedTouches[0].clientX - touchStartX;
+      if (Math.abs(dx) > 35) {
+        if (dx > 0) setLane(laneIndex + 1);
+        else setLane(laneIndex - 1);
+      }
+    }, { passive: true });
+
+    restartBtn.addEventListener("click", resetGame);
+
+    const clock = new THREE.Clock();
+    let distanceScore = 0;
+
+    function animate() {
+      const delta = Math.min(clock.getDelta(), 0.033);
+
+      player.position.x = THREE.MathUtils.lerp(player.position.x, laneX[laneIndex], 12 * delta);
+      body.rotation.z = Math.sin(performance.now() * 0.012) * 0.08;
+
+      if (!isGameOver) {
+        updateRoad(delta);
+        updateStars(delta);
+        updateObjects(delta);
+        distanceScore += delta * 2.2;
+        const distanceValue = Math.floor(distanceScore);
+        const total = score + distanceValue;
+        scoreEl.textContent = String(total);
+        speed = Math.min(34, speed + delta * 0.35);
+      } else {
+        speed = Math.max(0, speed - delta * 28);
+      }
+
+      updateBursts(delta);
+      renderer.render(scene, camera);
+      requestAnimationFrame(animate);
+    }
+
+    animate();
+  </script>
+</body>
+</html>

@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI &amp; Web Template Store - Neon Edition</title>
+    <link rel="icon" type="image/png" href="veer_logo.png">
+    <meta name="trustpilot-one-time-domain-verification-id" content="0e097a59-9cd0-419f-9301-e48a372f879e"/>
+    <link rel="manifest" href="./manifest.json">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8901202554117195" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js" async></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-LGB79B3YSZ"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-LGB79B3YSZ');
+    </script>
+    <meta name="google-adsense-account" content="ca-pub-8901202554117195">
+    <meta name="google-site-verification" content="uXGGYhGSxlWbCNAzfm-EgNxjI5ocLeOuEd7pu_9ZGZQ" />
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        body { background-color: #050505; color: #f8fafc; line-height: 1.6; }
+        header { background: linear-gradient(135deg, #0f0f0f, #1a0800); text-align: center; border-bottom: 2px solid #ff6600; box-shadow: 0 0 20px rgba(255,102,0,0.3); position: relative; }
+        .brand-logo { border-radius: 50%; border: 2px solid #ff6600; box-shadow: 0 0 15px rgba(255,102,0,0.6); object-fit: cover; }
+        header h1 { color: #ff6600; text-shadow: 0 0 10px rgba(255,102,0,0.6); }
+        header p { color: #38bdf8; text-shadow: 0 0 8px rgba(56,189,248,0.4); }
+        .badge { background: #ff6600; color: #000; border-radius: 20px; font-weight: bold; display: inline-block; box-shadow: 0 0 10px #ff6600; }
+        .yt-btn { display: inline-block; background: #ff0033; color: #fff; border-radius: 25px; text-decoration: none; font-weight: bold; box-shadow: 0 0 15px rgba(255,0,51,0.6); }
+        .header-trustbox { margin: 15px auto 10px; max-width: 300px; }
+        .grid { display: grid; }
+        .card { background-color: #0f0f0f; border: 2px solid #1e293b; border-radius: 12px; overflow: hidden; display: flex; flex-direction: column; box-shadow: 0 4px 15px rgba(0,0,0,0.8); }
+        .card-img { background: #121212; display: flex; align-items: center; justify-content: center; border-bottom: 1px solid #222; }
+        .card-content { flex: 1; display: flex; flex-direction: column; justify-content: space-between; }
+        .card-title { font-weight: bold; color: #ff6600; text-shadow: 0 0 5px rgba(255,102,0,0.3); }
+        .card-desc { color: #94a3b8; }
+        .price-row { display: flex; justify-content: space-between; align-items: center; border-top: 1px dashed #222; }
+        .price { font-weight: bold; color: #38bdf8; text-shadow: 0 0 8px rgba(56,189,248,0.5); }
+        .tag { font-size: 0.8rem; color: #38bdf8; }
+        .btn-buy { display: block; width: 100%; text-align: center; border-radius: 6px; font-weight: bold; text-decoration: none; background-color: #ff6600; color: #000; box-shadow: 0 0 10px rgba(255,102,0,0.4); }
+        #customModal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.85); z-index: 1000; justify-content: center; align-items: center; }
+        .modal-content { background: #0f0f0f; border: 2px solid #ff6600; padding: 25px; border-radius: 12px; width: 92%; max-width: 500px; box-shadow: 0 0 25px rgba(255,102,0,0.4); }
+        .modal-content h2 { color: #ff6600; margin-bottom: 15px; font-size: 1.4rem; }
+        .modal-content label { display: block; color: #ff6600; margin-bottom: 5px; font-size: 0.9rem; }
+        .modal-content input, .modal-content textarea { width: 100%; padding: 10px; background: #1a1a1a; border: 1px solid #333; color: #fff; border-radius: 6px; margin-bottom: 15px; font-size: 16px; }
+        .modal-content textarea { resize: vertical; height: 120px; }
+        .modal-btns { display: flex; justify-content: flex-end; gap: 10px; }
+        .btn-submit { background: #ff6600; color: #000; border: none; padding: 10px 20px; border-radius: 6px; font-weight: bold; cursor: pointer; }
+        .btn-close { background: #333; color: #fff; border: none; padding: 10px 20px; border-radius: 6px; font-weight: bold; cursor: pointer; }
+        .word-counter { font-size: 0.8rem; color: #94a3b8; text-align: right; margin-top: -10px; margin-bottom: 15px; }
+        footer { text-align: center; background-color: #080808; border-top: 2px solid #ff6600; color: #64748b; }
+
+        header { padding: 40px 20px; }
+        .top-right-btn { position: absolute; top: 20px; right: 25px; background-color: #ff6600; color: #000; padding: 10px 20px; border-radius: 8px; font-weight: bold; text-decoration: none; box-shadow: 0 0 15px rgba(255,102,0,0.6); transition: all .3s ease; }
+        .top-right-btn:hover { background-color: #ff8533; box-shadow: 0 0 20px #ff6600; transform: scale(1.05); }
+        .brand-logo { width: 120px; height: 120px; margin-bottom: 15px; }
+        header h1 { font-size: 2.8rem; margin-bottom: 10px; }
+        header p { font-size: 1.1rem; }
+        .badge { padding: 6px 15px; font-size: 0.95rem; margin-top: 15px; }
+        .yt-btn { padding: 10px 22px; font-size: 0.95rem; margin-top: 15px; transition: all .3s ease; }
+        .yt-btn:hover { background: #cc0029; transform: scale(1.05); }
+        .container { max-width: 1200px; margin: 30px auto; padding: 0 20px; }
+        .grid { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
+        .card { transition: all .3s ease; }
+        .card:hover { transform: translateY(-5px); border-color: #ff6600; box-shadow: 0 0 20px rgba(255,102,0,0.4); }
+        .card-img { height: 150px; font-size: 3.5rem; }
+        .card-content { padding: 20px; }
+        .card-title { font-size: 1.25rem; margin-bottom: 8px; }
+        .card-desc { font-size: 0.9rem; margin-bottom: 15px; }
+        .price-row { margin-bottom: 15px; padding-top: 10px; }
+        .price { font-size: 1.4rem; }
+        .btn-buy { padding: 10px; font-size: 0.95rem; transition: all .2s ease; }
+        .btn-buy:hover { background-color: #ff8533; box-shadow: 0 0 15px #ff6600; }
+        footer { padding: 30px; margin-top: 50px; }
+
+        .navbar { position: sticky; top: 0; z-index: 950; background: #080808; border-bottom: 2px solid #ff6600; display: flex; justify-content: center; gap: 10px; padding: 10px; }
+        .navbar a { color: #f8fafc; text-decoration: none; padding: 8px 20px; border-radius: 8px; font-weight: bold; border: 1px solid #1e293b; }
+        .navbar a.active { background: #ff6600; color: #000; border-color: #ff6600; box-shadow: 0 0 12px rgba(255,102,0,0.6); }
+        @media (max-width: 768px) {
+            .navbar { gap: 6px; padding: 8px; }
+            .navbar a { flex: 1; text-align: center; padding: 10px 4px; font-size: 0.85rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar"><a href="index.html">🏠 Home</a><a href="mobile.html">📱 Mobile Store</a><a href="pc.html" class="active">💻 PC Store</a></nav>
+
+    <header>
+        <a href="javascript:void(0);" class="top-right-btn custom-software-btn" onclick="openModal()">⚡ Custom Software</a>
+        <img src="veer_logo.png" alt="Veer Logo" class="brand-logo">
+        <h1>⚡ NEON AI &amp; TEMPLATE STORE</h1>
+        <div class="header-trustbox">
+            <div class="trustpilot-widget" data-locale="en-US" data-template-id="56278e9abfbbba0bdcd568bc" data-businessunit-id="6ac78cf3be67e4fd7bdb04ae" data-style-height="52px" data-style-width="100%" data-token="25f8d1d1-79a2-4eca-915d-d2570a0506dd">
+              <a href="https://www.trustpilot.com/review/neonveer.duckdns.org" target="_blank" rel="noopener">Trustpilot</a>
+            </div>
+        </div>
+        <p>Advanced AI Models, Python Bots &amp; Professional Website Templates</p>
+        <div class="badge">🔥 Flat ₹100 &amp; ₹500 Only! | Direct WhatsApp Delivery</div>
+        <br>
+        <a href="https://youtube.com/@neonveerofficial" target="_blank" rel="noopener noreferrer" class="yt-btn">▶ Subscribe to Neon Veer Official</a>
+    </header>
+
+    <div class="container">
+        <div class="grid">
+
+            <div class="card">
+                <div class="card-img">✨</div>
+                <div class="card-content">
+                    <div>
+                        <div class="card-title">Neon Custom Text Generator</div>
+                        <div class="card-desc">Advanced source code &amp; styles to generate custom glowing neon text designs instantly for branding and web projects.</div>
+                    </div>
+                    <div>
+                        <div class="price-row">
+                            <span class="price">₹200</span>
+                            <span class="tag">Source Code</span>
+                        </div>
+                        <a href="https://wa.me/916268193004?text=I%20want%20to%20buy%20Neon%20Custom%20Text%20Generator%20for%20%E2%82%B9200" class="btn-buy whatsapp-buy-btn" target="_blank" rel="noopener">Buy on WhatsApp</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-img">🤖</div>
+                <div class="card-content">
+                    <div>
+                        <div class="card-title">AI Prompt Generator</div>
+                        <div class="card-desc">Professional tool script designed to instantly generate high-end, detailed AI image and text prompts from basic keywords.</div>
+                    </div>
+                    <div>
+                        <div class="price-row">
+                            <span class="price">₹100</span>
+                            <span class="tag">Script Package</span>
+                        </div>
+                        <a href="https://wa.me/916268193004?text=I%20want%20to%20buy%20AI%20Prompt%20Generator%20for%20%E2%82%B9100" class="btn-buy whatsapp-buy-btn" target="_blank" rel="noopener">Buy on WhatsApp</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-img">🎮</div>
+                <div class="card-content">
+                    <div>
+                        <div class="card-title">Neon Arcade Runner</div>
+                        <div class="card-desc">Exciting arcade runner game source code with smooth jump mechanics, neon visuals, and high score tracking.</div>
+                    </div>
+                    <div>
+                        <div class="price-row">
+                            <span class="price">Free</span>
+                            <span class="tag">Game Source</span>
+                        </div>
+                        <a href="https://wa.me/916268193004?text=I%20want%20to%20get%20Neon%20Arcade%20Runner%20game" class="btn-buy whatsapp-buy-btn" target="_blank" rel="noopener">Get on WhatsApp</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-img">📚</div>
+                <div class="card-content">
+                    <div>
+                        <div class="card-title">AI Teacher Pro</div>
+                        <div class="card-desc">Interactive AI school teacher with voice support, multi-language study help, and coding assistance.</div>
+                    </div>
+                    <div>
+                        <div class="price-row">
+                            <span class="price">₹100</span>
+                            <span class="tag">Source Code</span>
+                        </div>
+                        <a href="https://wa.me/916268193004?text=I%20want%20to%20buy%20AI%20Teacher%20Pro%20for%20%E2%82%B9100" class="btn-buy whatsapp-buy-btn" target="_blank" rel="noopener">Buy on WhatsApp</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-img">✋</div>
+                <div class="card-content">
+                    <div>
+                        <div class="card-title">PC Hand Gesture Control</div>
+                        <div class="card-desc">Control Windows PC mouse, volume, scrolling, and take screenshots using right hand gestures via webcam.</div>
+                    </div>
+                    <div>
+                        <div class="price-row">
+                            <span class="price">₹100</span>
+                            <span class="tag">Python Script</span>
+                        </div>
+                        <a href="https://wa.me/916268193004?text=I%20want%20to%20buy%20PC%20Hand%20Gesture%20Control%20for%20%E2%82%B9100" class="btn-buy whatsapp-buy-btn" target="_blank" rel="noopener">Buy on WhatsApp</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-img">💻</div>
+                <div class="card-content">
+                    <div>
+                        <div class="card-title">Friday AI Developer Bot</div>
+                        <div class="card-desc">Smart AI coding assistant script built for automating development tasks and quick code generation.</div>
+                    </div>
+                    <div>
+                        <div class="price-row">
+                            <span class="price">₹150</span>
+                            <span class="tag">Advanced Script</span>
+                        </div>
+                        <a href="https://wa.me/916268193004?text=I%20want%20to%20buy%20Friday%20AI%20Developer%20Bot%20for%20%E2%82%B9150" class="btn-buy whatsapp-buy-btn" target="_blank" rel="noopener">Buy on WhatsApp</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-img">🤖</div>
+                <div class="card-content">
+                    <div>
+                        <div class="card-title">Voice Assistant Desktop Bot</div>
+                        <div class="card-desc">Advanced Python voice assistant with speech recognition, Gemini AI integration, and Windows system controls.</div>
+                    </div>
+                    <div>
+                        <div class="price-row">
+                            <span class="price">₹100</span>
+                            <span class="tag">Python Code</span>
+                        </div>
+                        <a href="https://wa.me/916268193004?text=I%20want%20to%20buy%20Voice%20Assistant%20Desktop%20Bot%20for%20%E2%82%B9100" class="btn-buy whatsapp-buy-btn" target="_blank" rel="noopener">Buy on WhatsApp</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-img">🧠</div>
+                <div class="card-content">
+                    <div>
+                        <div class="card-title">Custom Local AI Model Pack</div>
+                        <div class="card-desc">Standalone local AI setup package configured for fast offline response generation and smart automation.</div>
+                    </div>
+                    <div>
+                        <div class="price-row">
+                            <span class="price">₹200</span>
+                            <span class="tag">Setup Bundle</span>
+                        </div>
+                        <a href="https://wa.me/916268193004?text=I%20want%20to%20buy%20Custom%20Local%20AI%20Model%20Pack%20for%20%E2%82%B9200" class="btn-buy whatsapp-buy-btn" target="_blank" rel="noopener">Buy on WhatsApp</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-img">💍</div>
+                <div class="card-content">
+                    <div>
+                        <div class="card-title">Luxury Jewellery Web Template</div>
+                        <div class="card-desc">Stunning royal e-commerce &amp; showcase template designed specifically for high-end jewellery stores.</div>
+                    </div>
+                    <div>
+                        <div class="price-row">
+                            <span class="price">₹250</span>
+                            <span class="tag">HTML/CSS Package</span>
+                        </div>
+                        <a href="https://wa.me/916268193004?text=I%20want%20to%20buy%20Luxury%20Jewellery%20Web%20Template%20for%20%E2%82%B9250" class="btn-buy whatsapp-buy-btn" target="_blank" rel="noopener">Buy on WhatsApp</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-img">🦷</div>
+                <div class="card-content">
+                    <div>
+                        <div class="card-title">Dental Clinic Website Template</div>
+                        <div class="card-desc">Fully responsive professional dental clinic template featuring appointment booking and treatment pages.</div>
+                    </div>
+                    <div>
+                        <div class="price-row">
+                            <span class="price">₹250</span>
+                            <span class="tag">Full Zip Package</span>
+                        </div>
+                        <a href="https://wa.me/916268193004?text=I%20want%20to%20buy%20Dental%20Clinic%20Website%20Template%20for%20%E2%82%B9250" class="btn-buy whatsapp-buy-btn" target="_blank" rel="noopener">Buy on WhatsApp</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div id="customModal">
+        <div class="modal-content">
+            <h2>🛠️ Request Custom Software / Website</h2>
+            <form id="customForm" onsubmit="submitCustomOrder(event)">
+                <label for="clientName">Your Name:</label>
+                <input type="text" id="clientName" required placeholder="Enter your full name">
+                <label for="clientReq">Website/Software Requirement (Max 20,000 words):</label>
+                <textarea id="clientReq" required placeholder="Describe how you want your website or software built..." oninput="checkWordCount()"></textarea>
+                <div class="word-counter"><span id="wordCount">0</span> / 20,000 words</div>
+                <div class="modal-btns">
+                    <button type="button" class="btn-close" onclick="closeModal()">Cancel</button>
+                    <button type="submit" class="btn-submit">Send via WhatsApp</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Neon AI Store. Direct WhatsApp Orders on 6268193004.</p>
+    </footer>
+
+    <script>
+        function openModal() {
+            if (typeof gtag === "function") {
+                gtag('event', 'custom_software_click', {
+                    'event_category': 'Engagement',
+                    'event_label': 'Custom Software Button',
+                    'page_location': window.location.href
+                });
+            }
+            document.getElementById('customModal').style.display = 'flex';
+        }
+        function closeModal() {
+            document.getElementById('customModal').style.display = 'none';
+        }
+        function countWords(t) {
+            t = t.trim();
+            return t ? t.split(/\s+/).length : 0;
+        }
+        function checkWordCount() {
+            var ta = document.getElementById('clientReq');
+            var words = countWords(ta.value);
+            if (words > 20000) {
+                ta.value = ta.value.trim().split(/\s+/).slice(0, 20000).join(' ');
+                words = 20000;
+            }
+            document.getElementById('wordCount').innerText = words;
+        }
+        function submitCustomOrder(e) {
+            e.preventDefault();
+            var name = document.getElementById('clientName').value.trim();
+            var req = document.getElementById('clientReq').value.trim();
+            var msg = "Hello, I want a custom software/website.\n\nName: " + name + "\n\nRequirement:\n" + req;
+            window.open("https://wa.me/916268193004?text=" + encodeURIComponent(msg), "_blank");
+            closeModal();
+        }
+        document.getElementById('customModal').addEventListener('click', function(ev) {
+            if (ev.target === this) closeModal();
+        });
+    </script>
+</body>
+</html>

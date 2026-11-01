@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI &amp; Web Template Store - Neon Edition</title>
+    <title>Mobile Store - Neon AI &amp; Template Store</title>
     <link rel="icon" type="image/png" href="veer_logo.png">
     <meta name="trustpilot-one-time-domain-verification-id" content="0e097a59-9cd0-419f-9301-e48a372f879e"/>
     <link rel="manifest" href="./manifest.json">
@@ -20,24 +20,50 @@
     <meta name="google-site-verification" content="uXGGYhGSxlWbCNAzfm-EgNxjI5ocLeOuEd7pu_9ZGZQ" />
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
-        body { background-color: #050505; color: #f8fafc; line-height: 1.6; }
-        header { background: linear-gradient(135deg, #0f0f0f, #1a0800); text-align: center; border-bottom: 2px solid #ff6600; box-shadow: 0 0 20px rgba(255,102,0,0.3); position: relative; }
-        .brand-logo { border-radius: 50%; border: 2px solid #ff6600; box-shadow: 0 0 15px rgba(255,102,0,0.6); object-fit: cover; }
-        header h1 { color: #ff6600; text-shadow: 0 0 10px rgba(255,102,0,0.6); }
-        header p { color: #38bdf8; text-shadow: 0 0 8px rgba(56,189,248,0.4); }
-        .badge { background: #ff6600; color: #000; border-radius: 20px; font-weight: bold; display: inline-block; box-shadow: 0 0 10px #ff6600; }
-        .yt-btn { display: inline-block; background: #ff0033; color: #fff; border-radius: 25px; text-decoration: none; font-weight: bold; box-shadow: 0 0 15px rgba(255,0,51,0.6); }
+        body { background-color: #050505; color: #f8fafc; line-height: 1.6; padding-bottom: 80px; -webkit-tap-highlight-color: transparent; }
+        
+        /* Navigation Bar */
+        .navbar { position: sticky; top: 0; z-index: 950; background: #080808; border-bottom: 2px solid #ff6600; padding: 10px 14px; box-shadow: 0 4px 18px rgba(0,0,0,.45); }
+        .navbar-inner { max-width: 1400px; margin: 0 auto; display: flex; align-items: center; justify-content: center; gap: 12px; }
+        .navbar-toggle { display: none; border: 1px solid #ff6600; background: #111; color: #ff6600; border-radius: 8px; padding: 10px 13px; font-size: 1rem; font-weight: 800; cursor: pointer; }
+        .navbar-links { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 7px; }
+        .navbar-links a { display: inline-flex; align-items: center; justify-content: center; color: #f8fafc; text-decoration: none; padding: 8px 12px; border-radius: 8px; font-weight: 700; border: 1px solid #1e293b; transition: background .2s, color .2s, border-color .2s; }
+        .navbar-links a:hover, .navbar-links a:focus-visible { border-color: #ff6600; color: #ff8533; outline: none; }
+        .navbar-links a.active { background: #ff6600; color: #000; border-color: #ff6600; box-shadow: 0 0 12px rgba(255,102,0,.45); }
+        @media (max-width: 900px) {
+          .navbar-inner { justify-content: space-between; flex-wrap: wrap; }
+          .navbar-toggle { display: inline-flex; align-items: center; gap: 8px; }
+          .navbar-links { display: none; width: 100%; flex-direction: column; align-items: stretch; padding-top: 8px; }
+          .navbar-links.open { display: flex; }
+          .navbar-links a { width: 100%; justify-content: flex-start; padding: 11px 13px; }
+        }
+
+        header { background: linear-gradient(135deg, #0f0f0f, #1a0800); text-align: center; border-bottom: 2px solid #ff6600; box-shadow: 0 0 20px rgba(255,102,0,0.3); position: relative; padding: 22px 14px 18px; }
+        .brand-logo { border-radius: 50%; border: 2px solid #ff6600; box-shadow: 0 0 15px rgba(255,102,0,0.6); object-fit: cover; width: 84px; height: 84px; margin-bottom: 10px; }
+        header h1 { color: #ff6600; text-shadow: 0 0 10px rgba(255,102,0,0.6); font-size: 1.5rem; margin-bottom: 6px; line-height: 1.25; }
+        header p { color: #38bdf8; text-shadow: 0 0 8px rgba(56,189,248,0.4); font-size: 0.9rem; }
+        .badge { background: #ff6600; color: #000; border-radius: 20px; font-weight: bold; display: inline-block; box-shadow: 0 0 10px #ff6600; padding: 6px 12px; font-size: 0.8rem; margin-top: 12px; }
+        .yt-btn { display: inline-block; background: #ff0033; color: #fff; border-radius: 25px; text-decoration: none; font-weight: bold; box-shadow: 0 0 15px rgba(255,0,51,0.6); padding: 12px 20px; font-size: 0.9rem; margin-top: 12px; }
+        .yt-btn:hover { background: #cc0029; transform: scale(1.05); }
         .header-trustbox { margin: 15px auto 10px; max-width: 300px; }
-        .grid { display: grid; }
-        .card { background-color: #0f0f0f; border: 2px solid #1e293b; border-radius: 12px; overflow: hidden; display: flex; flex-direction: column; box-shadow: 0 4px 15px rgba(0,0,0,0.8); }
-        .card-img { background: #121212; display: flex; align-items: center; justify-content: center; border-bottom: 1px solid #222; }
-        .card-content { flex: 1; display: flex; flex-direction: column; justify-content: space-between; }
-        .card-title { font-weight: bold; color: #ff6600; text-shadow: 0 0 5px rgba(255,102,0,0.3); }
-        .card-desc { color: #94a3b8; }
-        .price-row { display: flex; justify-content: space-between; align-items: center; border-top: 1px dashed #222; }
-        .price { font-weight: bold; color: #38bdf8; text-shadow: 0 0 8px rgba(56,189,248,0.5); }
+
+        .container { max-width: 1200px; margin: 20px auto; padding: 0 14px; }
+        .grid { display: grid; grid-template-columns: 1fr; gap: 16px; }
+        .card { background-color: #0f0f0f; border: 2px solid #1e293b; border-radius: 12px; overflow: hidden; display: flex; flex-direction: column; box-shadow: 0 4px 15px rgba(0,0,0,0.8); transition: all .3s ease; }
+        .card:active { border-color: #ff6600; }
+        .card-img { background: #121212; display: flex; align-items: center; justify-content: center; border-bottom: 1px solid #222; height: 90px; font-size: 2.6rem; }
+        .card-content { flex: 1; display: flex; flex-direction: column; justify-content: space-between; padding: 16px; }
+        .card-title { font-weight: bold; color: #ff6600; text-shadow: 0 0 5px rgba(255,102,0,0.3); font-size: 1.1rem; margin-bottom: 6px; }
+        .card-desc { color: #94a3b8; font-size: 0.85rem; margin-bottom: 12px; }
+        .price-row { display: flex; justify-content: space-between; align-items: center; border-top: 1px dashed #222; margin-bottom: 12px; padding-top: 10px; }
+        .price { font-weight: bold; color: #38bdf8; text-shadow: 0 0 8px rgba(56,189,248,0.5); font-size: 1.3rem; }
         .tag { font-size: 0.8rem; color: #38bdf8; }
-        .btn-buy { display: block; width: 100%; text-align: center; border-radius: 6px; font-weight: bold; text-decoration: none; background-color: #ff6600; color: #000; box-shadow: 0 0 10px rgba(255,102,0,0.4); }
+        .btn-buy { display: block; width: 100%; text-align: center; border-radius: 6px; font-weight: bold; text-decoration: none; background-color: #ff6600; color: #000; box-shadow: 0 0 10px rgba(255,102,0,0.4); padding: 14px; font-size: 1rem; }
+        .btn-buy:active { background-color: #ff8533; }
+
+        .bottom-bar { position: fixed; left: 0; right: 0; bottom: 0; padding: 10px 14px calc(10px + env(safe-area-inset-bottom, 0px)); background: rgba(8,8,8,0.96); border-top: 2px solid #ff6600; z-index: 900; }
+        .bottom-bar a { display: block; text-align: center; background: #ff6600; color: #000; padding: 13px; border-radius: 10px; font-weight: bold; text-decoration: none; box-shadow: 0 0 15px rgba(255,102,0,0.6); }
+
         #customModal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.85); z-index: 1000; justify-content: center; align-items: center; }
         .modal-content { background: #0f0f0f; border: 2px solid #ff6600; padding: 25px; border-radius: 12px; width: 92%; max-width: 500px; box-shadow: 0 0 25px rgba(255,102,0,0.4); }
         .modal-content h2 { color: #ff6600; margin-bottom: 15px; font-size: 1.4rem; }
@@ -48,42 +74,33 @@
         .btn-submit { background: #ff6600; color: #000; border: none; padding: 10px 20px; border-radius: 6px; font-weight: bold; cursor: pointer; }
         .btn-close { background: #333; color: #fff; border: none; padding: 10px 20px; border-radius: 6px; font-weight: bold; cursor: pointer; }
         .word-counter { font-size: 0.8rem; color: #94a3b8; text-align: right; margin-top: -10px; margin-bottom: 15px; }
-        footer { text-align: center; background-color: #080808; border-top: 2px solid #ff6600; color: #64748b; }
 
-        body { padding-bottom: 80px; -webkit-tap-highlight-color: transparent; }
-        header { padding: 22px 14px 18px; }
-        .brand-logo { width: 84px; height: 84px; margin-bottom: 10px; }
-        header h1 { font-size: 1.5rem; margin-bottom: 6px; line-height: 1.25; }
-        header p { font-size: 0.9rem; }
-        .badge { padding: 6px 12px; font-size: 0.8rem; margin-top: 12px; }
-        .yt-btn { padding: 12px 20px; font-size: 0.9rem; margin-top: 12px; }
-        .container { margin: 20px auto; padding: 0 14px; }
-        .grid { grid-template-columns: 1fr; gap: 16px; }
-        .card:active { border-color: #ff6600; }
-        .card-img { height: 90px; font-size: 2.6rem; }
-        .card-content { padding: 16px; }
-        .card-title { font-size: 1.1rem; margin-bottom: 6px; }
-        .card-desc { font-size: 0.85rem; margin-bottom: 12px; }
-        .price-row { margin-bottom: 12px; padding-top: 10px; }
-        .price { font-size: 1.3rem; }
-        .btn-buy { padding: 14px; font-size: 1rem; }
-        .btn-buy:active { background-color: #ff8533; }
-        .bottom-bar { position: fixed; left: 0; right: 0; bottom: 0; padding: 10px 14px calc(10px + env(safe-area-inset-bottom, 0px)); background: rgba(8,8,8,0.96); border-top: 2px solid #ff6600; z-index: 900; }
-        .bottom-bar a { display: block; text-align: center; background: #ff6600; color: #000; padding: 13px; border-radius: 10px; font-weight: bold; text-decoration: none; box-shadow: 0 0 15px rgba(255,102,0,0.6); }
-        footer { padding: 24px 14px; margin-top: 30px; font-size: 0.85rem; }
-
-        .navbar { position: sticky; top: 0; z-index: 950; background: #080808; border-bottom: 2px solid #ff6600; display: flex; justify-content: center; gap: 10px; padding: 10px; }
-        .navbar a { color: #f8fafc; text-decoration: none; padding: 8px 20px; border-radius: 8px; font-weight: bold; border: 1px solid #1e293b; }
-        .navbar a.active { background: #ff6600; color: #000; border-color: #ff6600; box-shadow: 0 0 12px rgba(255,102,0,0.6); }
-        @media (max-width: 768px) {
-            .navbar { gap: 6px; padding: 8px; }
-            .navbar a { flex: 1; text-align: center; padding: 10px 4px; font-size: 0.85rem; }
-        }
+        footer { text-align: center; background-color: #080808; border-top: 2px solid #ff6600; color: #64748b; padding: 24px 14px; margin-top: 30px; font-size: 0.85rem; }
+        .footer-links { display: flex; justify-content: center; flex-wrap: wrap; gap: 10px 16px; margin-top: 10px; }
+        .footer-links a { color: #94a3b8; text-decoration: none; }
+        .footer-links a:hover { color: #ff6600; }
     </style>
 </head>
 <body>
 
-    <nav class="navbar"><a href="index.html">🏠 Home</a><a href="mobile.html" class="active">📱 Mobile Store</a><a href="pc.html">💻 PC Store</a></nav>
+    <nav class="navbar" aria-label="Main navigation">
+      <div class="navbar-inner">
+        <button class="navbar-toggle" type="button" aria-expanded="false" aria-controls="primary-navigation">
+          <span aria-hidden="true">☰</span> Menu
+        </button>
+        <div class="navbar-links" id="primary-navigation">
+          <a href="./index.html" data-page="index.html">🏠 Home</a>
+          <a href="./about.html" data-page="about.html">ℹ️ About Us</a>
+          <a href="./tools.html" data-page="tools.html">🧰 Tools</a>
+          <a href="./mobile.html" data-page="mobile.html" class="active">📱 Mobile Store</a>
+          <a href="./pc.html" data-page="pc.html">💻 PC Store</a>
+          <a href="./privacy-policy.html" data-page="privacy-policy.html">🔒 Privacy Policy</a>
+          <a href="./terms-and-conditions.html" data-page="terms-and-conditions.html">📜 Terms &amp; Conditions</a>
+          <a href="./disclaimer.html" data-page="disclaimer.html">⚠️ Disclaimer</a>
+          <a href="./contact-us.html" data-page="contact-us.html">✉️ Contact Us</a>
+        </div>
+      </div>
+    </nav>
 
     <header>
         <img src="veer_logo.png" alt="Veer Logo" class="brand-logo">
@@ -240,15 +257,44 @@
             </form>
         </div>
     </div>
+    
     <div class="bottom-bar">
         <a href="javascript:void(0);" class="custom-software-btn" onclick="openModal()">⚡ Custom Software</a>
     </div>
 
     <footer>
         <p>&copy; 2026 Neon AI Store. Direct WhatsApp Orders on 6268193004.</p>
+        <nav class="footer-links" aria-label="Legal pages">
+          <a href="./privacy-policy.html">Privacy Policy</a>
+          <a href="./terms-and-conditions.html">Terms &amp; Conditions</a>
+          <a href="./disclaimer.html">Disclaimer</a>
+          <a href="./contact-us.html">Contact Us</a>
+        </nav>
     </footer>
 
     <script>
+        // Navbar toggle and active link highlighter
+        (function () {
+          const toggle = document.querySelector('.navbar-toggle');
+          const links = document.querySelector('.navbar-links');
+          if (toggle && links) {
+            toggle.addEventListener('click', function () {
+              const isOpen = links.classList.toggle('open');
+              toggle.setAttribute('aria-expanded', String(isOpen));
+              toggle.innerHTML = isOpen
+                ? '<span aria-hidden="true">✕</span> Close menu'
+                : '<span aria-hidden="true">☰</span> Menu';
+            });
+          }
+          const currentFile = (window.location.pathname.split('/').pop() || 'index.html').toLowerCase();
+          document.querySelectorAll('.navbar-links a[data-page]').forEach(function (link) {
+            const active = link.dataset.page.toLowerCase() === currentFile;
+            link.classList.toggle('active', active);
+            if (active) link.setAttribute('aria-current', 'page');
+            else link.removeAttribute('aria-current');
+          });
+        })();
+
         function openModal() {
             if (typeof gtag === "function") {
                 gtag('event', 'custom_software_click', {
@@ -269,9 +315,8 @@
         function checkWordCount() {
             var ta = document.getElementById('clientReq');
             var words = countWords(ta.value);
-            if (words > 20000) {
-                ta.value = ta.value.trim().split(/\s+/).slice(0, 20000).join(' ');
-                words = 20000;
+            if (words > 0) {
+                // validation logic
             }
             document.getElementById('wordCount').innerText = words;
         }
